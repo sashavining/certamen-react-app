@@ -5,13 +5,16 @@ import {QUESTION_SET_BY_DIFFICULTY_AND_SOURCE} from '../queries'
 import Question from './Question'
 
 
-const Quiz = ({setScore, difficulty, source}) => {
+const Quiz = ({setScore, difficulty, source, endPlaying, setCurrentPoints, currentPoints}) => {
     const [currentQuestionNumber, setCurrentQuestionNumber] = useState(0);
     const [time, setTime] = useState(60000);
-    const [currentPoints, setCurrentPoints] = useState(0)
 
     const nextQuestion = () => {
-        setCurrentQuestionNumber(prevQuestionNumber => prevQuestionNumber + 1)
+        if (currentQuestionNumber < 19) {
+            setCurrentQuestionNumber(prevQuestionNumber => prevQuestionNumber + 1)
+        } else {
+            endPlaying()
+        }
     }
 
     const scorePoints = (points) => {

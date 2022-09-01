@@ -7,25 +7,21 @@ import SourceSelect from './forms/SourceSelect';
 
 
 
-const SelectionScreen = ({setSource, setDifficulty, toggleMode, setQuery}) => {
+const SelectionScreen = ({setSource, setDifficulty, startPlaying, setQuery}) => {
     const [currentDifficulty, setCurrentDifficulty] = useState('');
     const [currentSource, setCurrentSource] = useState('');
     
     const handleSubmit = (e) => {
         e.preventDefault()
         if (currentDifficulty !== '' && currentSource !== '') {
-            console.log('QUESTION_SET_BY_DIFFICULTY_AND_SOURCE')
             setQuery(QUESTION_SET_BY_DIFFICULTY_AND_SOURCE)
         } else if (currentDifficulty !== '') {
-            console.log('QUESTION_SET_BY_DIFFICULTY')
             setQuery(QUESTION_SET_BY_DIFFICULTY)
         } else if (currentSource !== '') {
-            console.log('QUESTION_SET_BY_SOURCE')
             setQuery(QUESTION_SET_BY_SOURCE)
         } else {
             return (
             <form>
-                Error: Please enter either a source, or a difficulty, or both :)
                 <DifficultySelect setCurrentDifficulty={setCurrentDifficulty} />
                 <SourceSelect setCurrentSource={setCurrentSource} />
                 <button type="submit" onClick={(e) => handleSubmit(e)}>Submit</button>
@@ -33,8 +29,7 @@ const SelectionScreen = ({setSource, setDifficulty, toggleMode, setQuery}) => {
         }
         setSource(currentSource)
         setDifficulty(currentDifficulty)
-        
-        toggleMode('playing')
+        startPlaying()
     }
 
     // useQuery(QUESTION_SET_BY_DIFFICULTY_AND_SOURCE)

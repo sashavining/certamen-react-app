@@ -1,7 +1,6 @@
 
 import React, { useState } from 'react';
-import MainQuestion from './MainQuestion'
-import FollowUpQuestion from './FollowUpQuestion'
+import SingleQuestion from './SingleQuestion'
 
 
 const Question = ({id, currentQuestion, nextQuestion, scorePoints}) => {
@@ -20,16 +19,32 @@ const Question = ({id, currentQuestion, nextQuestion, scorePoints}) => {
     const [questionState, setQuestionState] = useState(0);
     const [message, setMessage] = useState('');
 
+    const handleQuestionFlow = (isAnsweredCorrectly) => {
+        if (isAnsweredCorrectly && questionState < 2) {
+            setQuestionState(prevQuestionState => prevQuestionState + 1)
+        } else if (isAnsweredCorrectly) {
+            nextQuestion()
+            setQuestionState(0)
+        } else if ((!isAnsweredCorrectly) && (questionState === 0 || questionState === 2)) {
+            nextQuestion()
+            setQuestionState(0)
+        } else if ((!isAnsweredCorrectly) && (questionState === 1)) {
+            setQuestionState(2)
+        }
+    }
+
     const {mainQuestion, mainAnswer, firstFollowUpQuestion, firstFollowUpAnswer, secondFollowUpQuestion, secondFollowUpAnswer} = currentQuestion
     switch (questionState) {
         case 0:
-            return (<MainQuestion setQuestionState={setQuestionState} question={mainQuestion} answer={mainAnswer} availablePoints = {10} setMessage={setMessage} scorePoints={scorePoints}/>)
+            return (<SingleQuestion setQuestionState={setQuestionState} question={mainQuestion} answer={mainAnswer} availablePoints = {10} setMessage={setMessage} scorePoints={scorePoints} questionType="main" handleQuestionFlow={handleQuestionFlow}/>)
         case 1:
-            return (<FollowUpQuestion setQuestionState={setQuestionState} question={firstFollowUpQuestion} answer={firstFollowUpAnswer} availablePoints={5} setMessage={setMessage} scorePoints={scorePoints} />)
+            return (<SingleQuestion setQuestionState={setQuestionState} question={firstFollowUpQuestion} answer={firstFollowUpAnswer} availablePoints={5} setMessage={setMessage} scorePoints={scorePoints} questionType="followUpOne" handleQuestionFlow={handleQuestionFlow}/>)
         case 2: 
-            return (<FollowUpQuestion setQuestionState={setQuestionState} question={secondFollowUpQuestion} answer={secondFollowUpAnswer} availablePoints={5} setMessage={setMessage} nextQuestion={nextQuestion} scorePoints={scorePoints}/>)
+            return (<SingleQuestion setQuestionState={setQuestionState} question={secondFollowUpQuestion} answer={secondFollowUpAnswer} availablePoints={5} setMessage={setMessage} nextQuestion={nextQuestion} scorePoints={scorePoints} questionType="followUpTwo" handleQuestionFlow={handleQuestionFlow}/>)
+        case 3:
+            return ("u lose")
         default:
-            return (<></>)
+            return (<>Deeeefault!</>)
     }
     
 }
