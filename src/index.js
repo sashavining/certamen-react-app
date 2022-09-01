@@ -1,5 +1,6 @@
-import ReactDOM from 'react-dom'
-import App from './App'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App.js'
 
 import { ApolloClient, ApolloProvider, HttpLink, InMemoryCache, gql } from '@apollo/client'
 
@@ -12,25 +13,20 @@ const client = new ApolloClient({
 
 const query = gql`
 query {
-  allPersons {
-    name,
-    phone,
-    address {
-      street,
-      city
-    }
-    id
-  }
+  questionCount
 }
 `
 
-// client communicates w/ the server using the client object
 client.query({ query })
   .then((response) => {
     console.log(response.data)
   })
 
+  const root = ReactDOM.createRoot(document.getElementById('root'));
+
   // wrapping in ApolloProvider makes the client available throughout the app
-ReactDOM.render(  <ApolloProvider client={client}>
-  <App />
-</ApolloProvider>, document.getElementById('root'))
+  root.render(
+    <ApolloProvider client={client}>
+      <App />
+    </ApolloProvider>
+  )
