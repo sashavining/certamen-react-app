@@ -1,6 +1,9 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SingleQuestion from './SingleQuestion'
+import Timer from './Timer'
+import BuzzButton from './BuzzButton'
+import AnswerField from './AnswerField'
 
 
 const Question = ({id, currentQuestion, nextQuestion, scorePoints}) => {
@@ -18,6 +21,41 @@ const Question = ({id, currentQuestion, nextQuestion, scorePoints}) => {
 
     const [questionState, setQuestionState] = useState(0);
     const [message, setMessage] = useState('');
+    const [isAnswering, setIsAnswering] = useState(false)
+    const [currentAnswer, setCurrentAnswer] = useState('')
+    const [counter, setCounter] = useState(10);
+
+
+    const {mainQuestion, mainAnswer, firstFollowUpQuestion, firstFollowUpAnswer, secondFollowUpQuestion, secondFollowUpAnswer} = currentQuestion
+
+
+    const toggleAnswering = () => {
+        setIsAnswering(prevIsAnswering => !prevIsAnswering)
+    }
+
+    const handleAnswer = (e, answer, availablePoints) => {
+        if (e) {
+            e.preventDefault()
+        }
+        if (currentAnswer.toLowerCase() === answer.toLowerCase()) {
+            scorePoints(availablePoints)
+            handleQuestionFlow(true)
+            toggleAnswering()
+            // set a success state
+            // setQuestionState(prevQuestionState => prevQuestionState + 1)
+        } else {
+            handleQuestionFlow(false)
+            toggleAnswering()
+            // set a fail state
+        }
+    }
+
+    useEffect(() => {
+        setCounter(10)
+        // return () => setCounter(0);
+      }, [questionState, currentQuestion]);
+
+
 
     const handleQuestionFlow = (isAnsweredCorrectly) => {
         if (isAnsweredCorrectly && questionState < 2) {
@@ -33,15 +71,46 @@ const Question = ({id, currentQuestion, nextQuestion, scorePoints}) => {
         }
     }
 
-    const {mainQuestion, mainAnswer, firstFollowUpQuestion, firstFollowUpAnswer, secondFollowUpQuestion, secondFollowUpAnswer} = currentQuestion
     switch (questionState) {
 
         case 0:
-            return (<SingleQuestion setQuestionState={setQuestionState} question={mainQuestion} answer={mainAnswer} availablePoints = {10} setMessage={setMessage} scorePoints={scorePoints} questionType="main" handleQuestionFlow={handleQuestionFlow}/>)
+            return (
+                <>
+                    <Timer counter={counter} setCounter={setCounter} duration={10} handleAnswer={handleAnswer} answer={mainAnswer} availablePoints={10}/>
+            
+                    { mainQuestion } 
+                    { mainAnswer }
+                    <br />
+                    <br />
+                    { !(isAnswering) && <BuzzButton toggleAnswering={toggleAnswering}/> }
+                    { (isAnswering) &&  <AnswerField answer={mainAnswer} setMessage={setMessage} scorePoints={scorePoints} availablePoints={10} setQuestionState={setQuestionState} toggleAnswering={toggleAnswering} handleQuestionFlow={handleQuestionFlow} setCurrentAnswer={setCurrentAnswer} handleAnswer={handleAnswer}/>}
+                </>
+            )
         case 1:
-            return (<SingleQuestion setQuestionState={setQuestionState} question={firstFollowUpQuestion} answer={firstFollowUpAnswer} availablePoints={5} setMessage={setMessage} scorePoints={scorePoints} questionType="followUpOne" handleQuestionFlow={handleQuestionFlow}/>)
+            return (
+            <>
+                <Timer counter={counter} setCounter={setCounter} duration={20} handleAnswer={handleAnswer} answer={firstFollowUpAnswer} avialablePoints={5} />
+        
+                { firstFollowUpQuestion } 
+                { firstFollowUpAnswer }
+                <br />
+                <br />
+                { !(isAnswering) && <BuzzButton toggleAnswering={toggleAnswering}/> }
+                { (isAnswering) &&  <AnswerField answer={firstFollowUpAnswer} setMessage={setMessage} scorePoints={scorePoints} availablePoints={5} setQuestionState={setQuestionState} toggleAnswering={toggleAnswering} handleQuestionFlow={handleQuestionFlow} setCurrentAnswer={setCurrentAnswer} handleAnswer={handleAnswer}/>}
+            </>
+                )
         case 2: 
-            return (<SingleQuestion setQuestionState={setQuestionState} question={secondFollowUpQuestion} answer={secondFollowUpAnswer} availablePoints={5} setMessage={setMessage} nextQuestion={nextQuestion} scorePoints={scorePoints} questionType="followUpTwo" handleQuestionFlow={handleQuestionFlow}/>)
+            return (
+                <>
+                <Timer counter={counter} setCounter={setCounter} duration={20} handleAnswer={handleAnswer} answer={secondFollowUpAnswer} avialablePoints={5} />
+        
+                { secondFollowUpQuestion } 
+                { secondFollowUpAnswer }
+                <br />
+                <br />
+                { !(isAnswering) && <BuzzButton toggleAnswering={toggleAnswering}/> }
+                { (isAnswering) &&  <AnswerField answer={secondFollowUpAnswer} setMessage={setMessage} scorePoints={scorePoints} availablePoints={5} setQuestionState={setQuestionState} toggleAnswering={toggleAnswering} handleQuestionFlow={handleQuestionFlow} setCurrentAnswer={setCurrentAnswer} handleAnswer={handleAnswer}/>}
+            </>                )
         case 3:
             return ("u lose")
         default:
