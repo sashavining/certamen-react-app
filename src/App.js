@@ -1,9 +1,9 @@
 import './App.css';
 import Quiz from './components/Quiz'
+import Header from './components/Header'
 import SelectionScreen from './components/SelectionScreen'
 import RestartScreen from './components/RestartScreen'
 
-import { gql } from '@apollo/client'
 import React, { useState } from 'react';
 
 const App = () => {
@@ -32,11 +32,25 @@ const App = () => {
 
   // When called, useQuery makes the query it receives as a parameter. It returns an object with multiple fields. The field loading is true if the query has not received a response yet. Then the following code gets rendered:
     if (gameState === 'starting') {
-      return (<SelectionScreen setSource={setSource} setDifficulty={setDifficulty} startPlaying={startPlaying} setQuery={setQuery} />)
+      return (
+      <>
+      <Header />
+      <SelectionScreen setSource={setSource} setDifficulty={setDifficulty} startPlaying={startPlaying} setQuery={setQuery} />
+      </>)
     } else if (gameState === 'playing') {
-      return (<Quiz difficulty={difficulty} source={source} endPlaying={endPlaying} setCurrentPoints={setCurrentPoints} currentPoints={currentPoints}/>)
+      return (
+        <>
+          <Header />
+          <Quiz difficulty={difficulty} source={source} endPlaying={endPlaying} setCurrentPoints={setCurrentPoints} currentPoints={currentPoints}/>
+        </>
+      )
     } else if (gameState === 'ended') {
-      return (<RestartScreen goToStart={goToStart} finalScore={currentPoints}/>)
+      return (
+      <>
+      <Header />
+      <RestartScreen goToStart={goToStart} finalScore={currentPoints}/>
+      </>
+      )
     }
   
 }

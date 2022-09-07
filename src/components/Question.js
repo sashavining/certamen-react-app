@@ -35,6 +35,7 @@ const Question = ({id, currentQuestion, nextQuestion, scorePoints}) => {
 
     const {mainQuestion, mainAnswer, firstFollowUpQuestion, firstFollowUpAnswer, secondFollowUpQuestion, secondFollowUpAnswer} = currentQuestion
     switch (questionState) {
+
         case 0:
             return (<SingleQuestion setQuestionState={setQuestionState} question={mainQuestion} answer={mainAnswer} availablePoints = {10} setMessage={setMessage} scorePoints={scorePoints} questionType="main" handleQuestionFlow={handleQuestionFlow}/>)
         case 1:
