@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const AnswerButton = ({handleAnswer}) => {
+const AnswerButton = () => {
 
     // const nextQuestion = (e) => {
     //     e.preventDefault()
