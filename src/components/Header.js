@@ -1,10 +1,12 @@
 import React from 'react';
+import Logo from '../assets/logo.png'
+import '../styles/header.css';
 
 const Header = () => {
 
     return(
     <header>
-        <img src='/Users/alexandravining/repos/certamen-react-app/src/assets/logo.png' alt="certator logo - a timer" />
+        <img src={Logo} alt="certator logo - a timer" class="logo"/>
         <h1>Certator</h1>
         <ul>
             <li>Quizzer</li>

@@ -1,0 +1,14 @@
+.logo{
+    display: inline;
+    height: 50px;
+    width: 50px;
+}
+
+header{
+    background-color: #724E91;
+    margin: 0px;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
