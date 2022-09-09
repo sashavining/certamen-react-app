@@ -27,6 +27,7 @@ const Question = ({id, currentQuestion, nextQuestion, scorePoints}) => {
     const [counter, setCounter] = useState(10);
     const [isBetweenQuestions, setIsBetweenQuestions] = useState(false)
     const [isCorrect, setIsCorrect] = useState(false)
+    const [correctAnswer, setCorrectAnswer] = useState('')
 
     const {mainQuestion, mainAnswer, firstFollowUpQuestion, firstFollowUpAnswer, secondFollowUpQuestion, secondFollowUpAnswer} = currentQuestion
 
@@ -39,6 +40,7 @@ const Question = ({id, currentQuestion, nextQuestion, scorePoints}) => {
         if (e) {
             e.preventDefault()
         }
+        setCorrectAnswer(answer)
         if (currentAnswer.toLowerCase() === answer.toLowerCase()) {
             scorePoints(availablePoints)
             setIsCorrect(true)
@@ -124,7 +126,7 @@ const Question = ({id, currentQuestion, nextQuestion, scorePoints}) => {
                 return (<>Deeeefault!</>)
         }    
     } else {
-        return (<AnswerSlide wasCorrect={isCorrect} handleQuestionFlow={handleQuestionFlow} />)
+        return (<AnswerSlide wasCorrect={isCorrect} handleQuestionFlow={handleQuestionFlow} correctAnswer={correctAnswer} />)
     }
     
 }
