@@ -1,14 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel&display=swap');
+
+
 .logo{
-    display: inline;
+    float:left;
     height: 50px;
     width: 50px;
 }
 
-header{
+h1{
+    margin-top: .5rem;
+    margin-left: .7rem;
+    display: inline-block;
+}
+
+nav ul {
+    margin-top: .8rem;
+    font-size: 1.2rem;
+    font-family: 'Cinzel';
+    color: white;
+    list-style-type: none;
+}
+
+.site-header{
     background-color: #724E91;
     margin: 0px;
-    padding: 2rem;
+    padding: 1.5rem;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
   }
-  

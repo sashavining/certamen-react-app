@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel&display=swap');
+
+.site-footer{
+    background-color: #724E91;
+    margin: 0px;
+    padding: 1.2rem;
+    display: flex;
+    min-height: 1vh;
+    justify-content: space-between;
+}

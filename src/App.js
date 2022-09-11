@@ -1,6 +1,7 @@
 import './App.css';
 import Quiz from './components/Quiz'
 import Header from './components/Header'
+import Footer from './components/Footer'
 import SelectionScreen from './components/SelectionScreen'
 import RestartScreen from './components/RestartScreen'
 
@@ -35,20 +36,35 @@ const App = () => {
       return (
       <>
       <Header />
-      <SelectionScreen setSource={setSource} setDifficulty={setDifficulty} startPlaying={startPlaying} setQuery={setQuery} />
+      <body>
+        <main>
+          <SelectionScreen setSource={setSource} setDifficulty={setDifficulty} startPlaying={startPlaying} setQuery={setQuery} />
+        </main>
+      </body>
+      <Footer />
       </>)
     } else if (gameState === 'playing') {
       return (
         <>
           <Header />
-          <Quiz difficulty={difficulty} source={source} endPlaying={endPlaying} setCurrentPoints={setCurrentPoints} currentPoints={currentPoints}/>
+          <body>
+            <main>
+              <Quiz difficulty={difficulty} source={source} endPlaying={endPlaying} setCurrentPoints={setCurrentPoints} currentPoints={currentPoints}/>
+            </main>
+          </body>
+          <Footer />
         </>
       )
     } else if (gameState === 'ended') {
       return (
       <>
       <Header />
-      <RestartScreen goToStart={goToStart} finalScore={currentPoints}/>
+      <body>
+        <main>
+          <RestartScreen goToStart={goToStart} finalScore={currentPoints}/>
+        </main>
+      </body>
+      <Footer />
       </>
       )
     }

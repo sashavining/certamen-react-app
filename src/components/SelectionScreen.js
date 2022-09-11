@@ -39,11 +39,11 @@ const SelectionScreen = ({setSource, setDifficulty, startPlaying, setQuery}) => 
     
     return (
        <form onSubmit={(e) => handleSubmit(e)}>
+        <h2 class="text-center mb-3">Game Select:</h2>
         <DifficultySelect setCurrentDifficulty={setCurrentDifficulty} />
         <SourceSelect setCurrentSource={setCurrentSource} />
-        {currentDifficulty}
-        {currentSource}
-        <button type="submit">Submit</button>
+        <div>Mode</div>
+        <button type="submit" class="center">Submit</button>
        </form>    )
 }
   
