@@ -5,6 +5,13 @@
   padding: 0px;
 }
 
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+
 h1, h2, h3, h4, h5{
   font-family: 'Cinzel';
 }
@@ -20,6 +27,10 @@ h1{
   margin: 0 auto;
 }
 
+.my-3{
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
 .mb-3{
   margin-bottom: 2rem;
 }
@@ -28,10 +39,14 @@ button{
   min-width: 100px;
   background-color: #5B9279;
   border: none;
-  padding: .6rem;
-  border-radius: 10px;
+  /* padding: 3rem .6rem; */
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
   color:white;
   font-size: 16px;
+  display: block;
+  margin: 0 auto;
   /* color transition on the button so it's not as abrupt */
 }
 
@@ -48,7 +63,7 @@ fieldset {
 
 label {
   display:  block;
-  margin-top: 1vh;
+  margin: 1vh 0vw;
 }
 
 input[type="radio"] {
@@ -65,16 +80,16 @@ input[type="radio"] {
 }
 
 body {
-  min-height: 77vh;
+  min-height: 78vh;
 }
 
 main {
   background-color: #EEF0F2;
-  min-height: 55vh;
+  height: 65vh;
   width: 50vw;
   border-radius: 30px;
   margin: 0 auto;
-  padding: 35px;
+  padding: 20px 35px;
   margin-top: 5vh;
 }
 
@@ -93,6 +108,37 @@ main {
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.timer {
+  color: #724E91;
+  font-family: 'Cinzel';
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 3vh;
+}
+
+.question-text, .feedback-text, .answer-field{
+  text-align: center;
+  margin-bottom: 3vh;
+  font-size: 18px;
+}
+.answer-field input{
+  margin-bottom: 1rem;
+}
+
+.feedback-text{
+  margin-top: 2.5rem;
+}
+
+.source-select{
+  text-align: center;
+}
+
+.source-select__input{
+  width: 60%;
+  margin-bottom: 20px;
 }
 
 .App-link {

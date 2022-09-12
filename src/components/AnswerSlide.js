@@ -6,10 +6,12 @@ const AnswerSlide = ({wasCorrect, handleQuestionFlow, correctAnswer}) => {
 
     return(
         <>
-        {((wasCorrect) && "Correct! Great job.")}
-        {((!wasCorrect) && `Incorrect! The answer we were looking for was: ${correctAnswer}`)}
-        <button onClick={(e) => handleQuestionFlow(e, wasCorrect)}>Next question</button>
-        {/* write a function that moves you to the next thing */}
+        <div class="feedback-text">
+            {((wasCorrect) && "Correct! Great job.")}
+            {((!wasCorrect) && `Incorrect! The answer we were looking for was: ${correctAnswer}`)}
+        </div>
+
+        <button onClick={(e) => handleQuestionFlow(e, wasCorrect)}>Next</button>
         </>
     )
 }

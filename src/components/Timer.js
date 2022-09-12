@@ -13,11 +13,8 @@ const Timer = ({answer, availablePoints, counter, duration, toggleAnswering, han
 
 
     return(
-        <div>
-            This is a timer!
+        <div className='timer'>
             { counter }
-            {/* <button onClick={startTimer}>Start timer !</button>
-            <button onClick={stopTimer}>Stop timer !</button> */}
         </div>
     )
     
