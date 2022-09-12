@@ -24,7 +24,7 @@ const Question = ({id, currentQuestion, nextQuestion, scorePoints}) => {
     const [message, setMessage] = useState('');
     const [isAnswering, setIsAnswering] = useState(false)
     const [currentAnswer, setCurrentAnswer] = useState('')
-    const [counter, setCounter] = useState(10);
+    const [counter, setCounter] = useState(60);
     const [isBetweenQuestions, setIsBetweenQuestions] = useState(false)
     const [isCorrect, setIsCorrect] = useState(false)
     const [correctAnswer, setCorrectAnswer] = useState('')
@@ -64,18 +64,18 @@ const Question = ({id, currentQuestion, nextQuestion, scorePoints}) => {
         console.log(isAnsweredCorrectly)
         if (isAnsweredCorrectly && questionState < 2) {
             setQuestionState(prevQuestionState => prevQuestionState + 1)
-            setCounter(10)
+            setCounter(60)
         } else if (isAnsweredCorrectly) {
             setQuestionState(0)
-            setCounter(10)
+            setCounter(60)
             nextQuestion()
         } else if ((!isAnsweredCorrectly) && (questionState === 0 || questionState === 2)) {
             setQuestionState(0)
-            setCounter(10)
+            setCounter(60)
             nextQuestion()
         } else if ((!isAnsweredCorrectly) && (questionState === 1)) {
             setQuestionState(2)
-            setCounter(10)
+            setCounter(60)
         }
         setIsBetweenQuestions(false)
     }
@@ -85,7 +85,7 @@ const Question = ({id, currentQuestion, nextQuestion, scorePoints}) => {
             case 0:
                 return (
                     <>
-                        <Timer counter={counter} setCounter={setCounter} duration={10} handleAnswer={handleAnswer} answer={mainAnswer} availablePoints={10}/>
+                        <Timer counter={counter} setCounter={setCounter} duration={60} handleAnswer={handleAnswer} answer={mainAnswer} availablePoints={10}/>
                         <div className='question-text'>
 
                         { mainQuestion } 

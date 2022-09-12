@@ -31,8 +31,6 @@ const Quiz = ({setScore, difficulty, source, endPlaying, setCurrentPoints, curre
     let currentQuestion = data.twentyQuestionsBySourceOrDifficulty[currentQuestionNumber]
     return (
         <>
-        <br />
-        <br />
         <Question currentQuestion={currentQuestion} nextQuestion={nextQuestion} scorePoints={scorePoints} />
         <div className='points-container text-center my-3'>
             Score: {currentPoints}
