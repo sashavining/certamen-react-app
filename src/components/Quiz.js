@@ -5,7 +5,7 @@ import {QUESTION_SET_BY_DIFFICULTY_AND_SOURCE} from '../queries'
 import Question from './Question'
 
 
-const Quiz = ({setScore, difficulty, source, endPlaying, setCurrentPoints, currentPoints}) => {
+const Quiz = ({setScore, difficulty, source, endPlaying, setCurrentPoints, currentPoints, setBackgroundColor}) => {
     const [currentQuestionNumber, setCurrentQuestionNumber] = useState(0);
     const [time, setTime] = useState(60000);
 
@@ -31,7 +31,7 @@ const Quiz = ({setScore, difficulty, source, endPlaying, setCurrentPoints, curre
     let currentQuestion = data.twentyQuestionsBySourceOrDifficulty[currentQuestionNumber]
     return (
         <>
-        <Question currentQuestion={currentQuestion} nextQuestion={nextQuestion} scorePoints={scorePoints} />
+        <Question currentQuestion={currentQuestion} nextQuestion={nextQuestion} scorePoints={scorePoints} setBackgroundColor={setBackgroundColor} />
         <div className='points-container text-center my-3'>
             Score: {currentPoints}
         </div>

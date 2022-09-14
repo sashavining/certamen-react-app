@@ -14,6 +14,7 @@ const App = () => {
   const [difficulty, setDifficulty] = useState('difficulty');
   const [query, setQuery] = useState('')
   const [currentPoints, setCurrentPoints] = useState(0)
+  const [backgroundColor, setBackgroundColor] = useState('background-white')
 
 
   const startPlaying = () => {
@@ -34,38 +35,38 @@ const App = () => {
   // When called, useQuery makes the query it receives as a parameter. It returns an object with multiple fields. The field loading is true if the query has not received a response yet. Then the following code gets rendered:
     if (gameState === 'starting') {
       return (
-      <>
+      <body className={backgroundColor}>
       <Header />
-      <body>
+      <div className="container">
         <main>
           <SelectionScreen setSource={setSource} setDifficulty={setDifficulty} startPlaying={startPlaying} setQuery={setQuery} />
         </main>
-      </body>
+      </div>
       <Footer />
-      </>)
+      </body>)
     } else if (gameState === 'playing') {
       return (
-        <>
+        <body className={backgroundColor}>
           <Header />
-          <body>
+          <div className="container">
             <main>
-              <Quiz difficulty={difficulty} source={source} endPlaying={endPlaying} setCurrentPoints={setCurrentPoints} currentPoints={currentPoints}/>
+              <Quiz difficulty={difficulty} source={source} endPlaying={endPlaying} setCurrentPoints={setCurrentPoints} currentPoints={currentPoints} setBackgroundColor={setBackgroundColor}/>
             </main>
-          </body>
+          </div>
           <Footer />
-        </>
+        </body>
       )
     } else if (gameState === 'ended') {
       return (
-      <>
+      <body className={backgroundColor}>
       <Header />
-      <body>
+      <div className="container">
         <main>
           <RestartScreen goToStart={goToStart} finalScore={currentPoints}/>
         </main>
-      </body>
+      </div>
       <Footer />
-      </>
+      </body>
       )
     }
   

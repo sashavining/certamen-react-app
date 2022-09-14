@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 
 const AnswerSlide = ({wasCorrect, handleQuestionFlow, correctAnswer}) => {
 
-    console.log()
-
     return(
         <>
         <div class="feedback-text">

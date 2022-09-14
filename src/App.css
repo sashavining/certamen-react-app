@@ -16,6 +16,19 @@ h1, h2, h3, h4, h5{
   font-family: 'Cinzel';
 }
 
+.background-white{
+  background-color: #fff;
+}
+
+.background-red{
+  background-color: #F1B5B5;
+}
+
+.background-green{
+  background-color: #D0EBDF;
+}
+
+
 h1{
   color: #F8C630;
 }
@@ -79,13 +92,13 @@ input[type="radio"] {
   pointer-events: none;
 }
 
-body {
-  min-height: 78vh;
+.container{
+  height: 78vh;
 }
 
 main {
   background-color: #EEF0F2;
-  height: 65vh;
+  height: 60vh;
   width: 50vw;
   border-radius: 30px;
   margin: 0 auto;

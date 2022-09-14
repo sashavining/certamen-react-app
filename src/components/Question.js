@@ -7,7 +7,7 @@ import AnswerField from './AnswerField'
 import AnswerSlide from './AnswerSlide'
 
 
-const Question = ({id, currentQuestion, nextQuestion, scorePoints}) => {
+const Question = ({id, currentQuestion, nextQuestion, scorePoints, setBackgroundColor}) => {
 
 
     // 0 represents main question being asked (+ timer)
@@ -42,6 +42,7 @@ const Question = ({id, currentQuestion, nextQuestion, scorePoints}) => {
         }
         setCorrectAnswer(answer)
         if (currentAnswer.toLowerCase() === answer.toLowerCase()) {
+            setBackgroundColor('background-green')
             scorePoints(availablePoints)
             setIsCorrect(true)
             // handleQuestionFlow(true) - handle this separately
@@ -50,6 +51,7 @@ const Question = ({id, currentQuestion, nextQuestion, scorePoints}) => {
             // set a success state
             // setQuestionState(prevQuestionState => prevQuestionState + 1)
         } else {
+            setBackgroundColor('background-red')
             setIsCorrect(false)
             // handleQuestionFlow(false) - handle this separately
             toggleAnswering()
@@ -61,7 +63,7 @@ const Question = ({id, currentQuestion, nextQuestion, scorePoints}) => {
 
     const handleQuestionFlow = (e, isAnsweredCorrectly) => {
         e.preventDefault()
-        console.log(isAnsweredCorrectly)
+        setBackgroundColor('background-white')
         if (isAnsweredCorrectly && questionState < 2) {
             setQuestionState(prevQuestionState => prevQuestionState + 1)
             setCounter(60)
