@@ -13,7 +13,7 @@ const BuzzButton = ({toggleAnswering}) => {
     }
 
     return(
-        <button onClick={(e) => handleClick(e)}>
+        <button onClick={(e) => handleClick(e)} class="answer-button">
             Buzz
         </button>
     )

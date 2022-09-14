@@ -7,7 +7,7 @@ import AnswerField from './AnswerField'
 import AnswerSlide from './AnswerSlide'
 
 
-const Question = ({id, currentQuestion, nextQuestion, scorePoints}) => {
+const Question = ({id, currentQuestion, nextQuestion, scorePoints, setBackgroundColor}) => {
 
 
     // 0 represents main question being asked (+ timer)
@@ -24,7 +24,7 @@ const Question = ({id, currentQuestion, nextQuestion, scorePoints}) => {
     const [message, setMessage] = useState('');
     const [isAnswering, setIsAnswering] = useState(false)
     const [currentAnswer, setCurrentAnswer] = useState('')
-    const [counter, setCounter] = useState(10);
+    const [counter, setCounter] = useState(60);
     const [isBetweenQuestions, setIsBetweenQuestions] = useState(false)
     const [isCorrect, setIsCorrect] = useState(false)
     const [correctAnswer, setCorrectAnswer] = useState('')
@@ -42,6 +42,7 @@ const Question = ({id, currentQuestion, nextQuestion, scorePoints}) => {
         }
         setCorrectAnswer(answer)
         if (currentAnswer.toLowerCase() === answer.toLowerCase()) {
+            setBackgroundColor('background-green')
             scorePoints(availablePoints)
             setIsCorrect(true)
             // handleQuestionFlow(true) - handle this separately
@@ -50,6 +51,7 @@ const Question = ({id, currentQuestion, nextQuestion, scorePoints}) => {
             // set a success state
             // setQuestionState(prevQuestionState => prevQuestionState + 1)
         } else {
+            setBackgroundColor('background-red')
             setIsCorrect(false)
             // handleQuestionFlow(false) - handle this separately
             toggleAnswering()
@@ -58,24 +60,24 @@ const Question = ({id, currentQuestion, nextQuestion, scorePoints}) => {
         }
     }
 
-    useEffect(() => {
-        setCounter(10)
-        // return () => setCounter(0);
-      }, [questionState, currentQuestion]);
-
 
     const handleQuestionFlow = (e, isAnsweredCorrectly) => {
         e.preventDefault()
+        setBackgroundColor('background-white')
         if (isAnsweredCorrectly && questionState < 2) {
             setQuestionState(prevQuestionState => prevQuestionState + 1)
+            setCounter(60)
         } else if (isAnsweredCorrectly) {
-            nextQuestion()
             setQuestionState(0)
+            setCounter(60)
+            nextQuestion()
         } else if ((!isAnsweredCorrectly) && (questionState === 0 || questionState === 2)) {
-            nextQuestion()
             setQuestionState(0)
+            setCounter(60)
+            nextQuestion()
         } else if ((!isAnsweredCorrectly) && (questionState === 1)) {
             setQuestionState(2)
+            setCounter(60)
         }
         setIsBetweenQuestions(false)
     }
@@ -85,10 +87,11 @@ const Question = ({id, currentQuestion, nextQuestion, scorePoints}) => {
             case 0:
                 return (
                     <>
-                        <Timer counter={counter} setCounter={setCounter} duration={10} handleAnswer={handleAnswer} answer={mainAnswer} availablePoints={10}/>
-                
+                        <Timer counter={counter} setCounter={setCounter} duration={60} handleAnswer={handleAnswer} answer={mainAnswer} availablePoints={10}/>
+                        <div className='question-text'>
+
                         { mainQuestion } 
-                        { mainAnswer }
+                        </div>                        
                         <br />
                         <br />
                         { !(isAnswering) && <BuzzButton toggleAnswering={toggleAnswering}/> }
@@ -99,10 +102,9 @@ const Question = ({id, currentQuestion, nextQuestion, scorePoints}) => {
                 return (
                 <>
                     <Timer counter={counter} setCounter={setCounter} duration={20} handleAnswer={handleAnswer} answer={firstFollowUpAnswer} avialablePoints={5} />
-            
-                    { firstFollowUpQuestion } 
-                    { firstFollowUpAnswer }
-                    <br />
+                    <div className='question-text'>
+                    First follow up: { firstFollowUpQuestion } 
+                    </div>
                     <br />
                     { !(isAnswering) && <BuzzButton toggleAnswering={toggleAnswering}/> }
                     { (isAnswering) &&  <AnswerField answer={firstFollowUpAnswer} setMessage={setMessage} scorePoints={scorePoints} availablePoints={5} setQuestionState={setQuestionState} toggleAnswering={toggleAnswering} handleQuestionFlow={handleQuestionFlow} setCurrentAnswer={setCurrentAnswer} handleAnswer={handleAnswer}/>}
@@ -112,11 +114,10 @@ const Question = ({id, currentQuestion, nextQuestion, scorePoints}) => {
                 return (
                     <>
                     <Timer counter={counter} setCounter={setCounter} duration={20} handleAnswer={handleAnswer} answer={secondFollowUpAnswer} avialablePoints={5} />
-            
-                    { secondFollowUpQuestion } 
-                    { secondFollowUpAnswer }
-                    <br />
-                    <br />
+                    <div className='question-text'>
+                    Second follow up:  { secondFollowUpQuestion } 
+
+                    </div>
                     { !(isAnswering) && <BuzzButton toggleAnswering={toggleAnswering}/> }
                     { (isAnswering) &&  <AnswerField answer={secondFollowUpAnswer} setMessage={setMessage} scorePoints={scorePoints} availablePoints={5} setQuestionState={setQuestionState} toggleAnswering={toggleAnswering} handleQuestionFlow={handleQuestionFlow} setCurrentAnswer={setCurrentAnswer} handleAnswer={handleAnswer}/>}
                 </>                )
