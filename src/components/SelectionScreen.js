@@ -1,34 +1,31 @@
 import ReactDOM from 'react-dom'
 import { useQuery } from '@apollo/client'
 import React, { useState } from 'react';
-import {QUESTION_SET_BY_DIFFICULTY, QUESTION_SET_BY_SOURCE, QUESTION_SET_BY_DIFFICULTY_AND_SOURCE} from '../queries'
+import {QUESTION_SET_BY_DIFFICULTY, QUESTION_SET_BY_SOURCE, QUESTION_SET_BY_DIFFICULTY_AND_SOURCE, MC_QUESTION_SET_BY_DIFFICULTY_AND_SOURCE, MC_QUESTION_SET_BY_DIFFICULTY, MC_QUESTION_SET_BY_SOURCE} from '../queries'
 import DifficultySelect from './forms/DifficultySelect';
 import SourceSelect from './forms/SourceSelect';
+import GameTypeSelect from './forms/GameTypeSelect'
 
-
-
-const SelectionScreen = ({setSource, setDifficulty, startPlaying, setQuery}) => {
+const SelectionScreen = ({setSource, setDifficulty, startPlaying, setQuery, setMode}) => {
     const [currentDifficulty, setCurrentDifficulty] = useState('');
     const [currentSource, setCurrentSource] = useState('');
+    const [currentMode, setCurrentMode] = useState('')
     
     const handleSubmit = (e) => {
         e.preventDefault()
-        if (currentDifficulty !== '' && currentSource !== '') {
-            setQuery(QUESTION_SET_BY_DIFFICULTY_AND_SOURCE)
-        } else if (currentDifficulty !== '') {
-            setQuery(QUESTION_SET_BY_DIFFICULTY)
-        } else if (currentSource !== '') {
-            setQuery(QUESTION_SET_BY_SOURCE)
-        } else {
+        if (currentDifficulty === '' && currentSource === '' && currentMode === '') {
             return (
             <form>
                 <DifficultySelect setCurrentDifficulty={setCurrentDifficulty} />
                 <SourceSelect setCurrentSource={setCurrentSource} />
+                <GameTypeSelect setGameType={setCurrentMode} />
+
                 <button type="submit" onClick={(e) => handleSubmit(e)}>Submit</button>
                </form> )
         }
         setSource(currentSource)
         setDifficulty(currentDifficulty)
+        setMode(currentMode)
         startPlaying()
     }
 
@@ -42,7 +39,7 @@ const SelectionScreen = ({setSource, setDifficulty, startPlaying, setQuery}) => 
         <h2 class="text-center mb-3">Game Select:</h2>
         <DifficultySelect setCurrentDifficulty={setCurrentDifficulty} />
         <SourceSelect setCurrentSource={setCurrentSource} />
-        <div>Mode</div>
+        <GameTypeSelect setGameType={setCurrentMode} />
         <button type="submit" class="center">Submit</button>
        </form>    )
 }

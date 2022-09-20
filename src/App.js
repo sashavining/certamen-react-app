@@ -11,11 +11,11 @@ const App = () => {
   // possible game states: 'playing', 'starting', 'ended'
   const [gameState, setGameState] = useState('starting');
   const [source, setSource] = useState('');
-  const [difficulty, setDifficulty] = useState('difficulty');
+  const [difficulty, setDifficulty] = useState('');
+  const [mode, setMode] = useState('');
   const [query, setQuery] = useState('')
   const [currentPoints, setCurrentPoints] = useState(0)
   const [backgroundColor, setBackgroundColor] = useState('background-white')
-
 
   const startPlaying = () => {
     setGameState('playing')
@@ -39,7 +39,7 @@ const App = () => {
       <Header />
       <div className="container">
         <main>
-          <SelectionScreen setSource={setSource} setDifficulty={setDifficulty} startPlaying={startPlaying} setQuery={setQuery} />
+          <SelectionScreen setSource={setSource} setDifficulty={setDifficulty} startPlaying={startPlaying} setQuery={setQuery} setMode={setMode} />
         </main>
       </div>
       <Footer />
@@ -50,7 +50,7 @@ const App = () => {
           <Header />
           <div className="container">
             <main>
-              <Quiz difficulty={difficulty} source={source} endPlaying={endPlaying} setCurrentPoints={setCurrentPoints} currentPoints={currentPoints} setBackgroundColor={setBackgroundColor}/>
+              <Quiz mode={mode} difficulty={difficulty} source={source} endPlaying={endPlaying} setCurrentPoints={setCurrentPoints} currentPoints={currentPoints} setBackgroundColor={setBackgroundColor}/>
             </main>
           </div>
           <Footer />
