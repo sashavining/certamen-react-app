@@ -5,9 +5,10 @@ import Timer from './Timer'
 import BuzzButton from './BuzzButton'
 import AnswerField from './AnswerField'
 import AnswerSlide from './AnswerSlide'
+import MCAnswerButtons from './MCAnswerButtons'
 
 
-const Question = ({id, currentQuestion, nextQuestion, scorePoints, setBackgroundColor}) => {
+const Question = ({mode, id, currentQuestion, nextQuestion, scorePoints, setBackgroundColor}) => {
 
 
     // 0 represents main question being asked (+ timer)
@@ -29,19 +30,27 @@ const Question = ({id, currentQuestion, nextQuestion, scorePoints, setBackground
     const [isCorrect, setIsCorrect] = useState(false)
     const [correctAnswer, setCorrectAnswer] = useState('')
 
-    const {mainQuestion, mainAnswer, firstFollowUpQuestion, firstFollowUpAnswer, secondFollowUpQuestion, secondFollowUpAnswer} = currentQuestion
+    const {mainQuestion, mainAnswer, firstFollowUpQuestion, firstFollowUpAnswer, secondFollowUpQuestion, secondFollowUpAnswer, MCAnswers} = currentQuestion
 
 
     const toggleAnswering = () => {
         setIsAnswering(prevIsAnswering => !prevIsAnswering)
     }
 
-    const handleAnswer = (e, answer, availablePoints) => {
+    const handleAnswer = (e, answer, availablePoints, providedAnswer) => {
+        setCorrectAnswer(answer)
         if (e) {
             e.preventDefault()
         }
-        setCorrectAnswer(answer)
-        if (currentAnswer.toLowerCase() === answer.toLowerCase()) {
+        let enteredAnswer;
+        if (providedAnswer) {
+            // to circumvent the fact that useState is asynchronous - if the MC question provides an answer, set the value of enteredAnswer to that
+            enteredAnswer = providedAnswer
+        } else {
+            // otherwise (if we are playing the short answer mode), set the value of enteredAnswer to the state variable currentAnswer
+            enteredAnswer = currentAnswer
+        }
+        if (enteredAnswer.toLowerCase() === answer.toLowerCase()) {
             setBackgroundColor('background-green')
             scorePoints(availablePoints)
             setIsCorrect(true)
@@ -95,7 +104,8 @@ const Question = ({id, currentQuestion, nextQuestion, scorePoints, setBackground
                         <br />
                         <br />
                         { !(isAnswering) && <BuzzButton toggleAnswering={toggleAnswering}/> }
-                        { (isAnswering) &&  <AnswerField answer={mainAnswer} setMessage={setMessage} scorePoints={scorePoints} availablePoints={10} setQuestionState={setQuestionState} toggleAnswering={toggleAnswering} handleQuestionFlow={handleQuestionFlow} setCurrentAnswer={setCurrentAnswer} handleAnswer={handleAnswer}/>}           
+                        { (isAnswering) && (mode === 'multiple-choice') && <MCAnswerButtons correctAnswer={mainAnswer} incorrectAnswers={MCAnswers.slice(0, 3)} setCurrentAnswer={setCurrentAnswer} handleAnswer={handleAnswer} availablePoints={10} currentAnswer={currentAnswer} />}
+                        { (isAnswering) && (mode === 'short-answer') && <AnswerField answer={mainAnswer} setMessage={setMessage} scorePoints={scorePoints} availablePoints={10} setQuestionState={setQuestionState} toggleAnswering={toggleAnswering} handleQuestionFlow={handleQuestionFlow} setCurrentAnswer={setCurrentAnswer} handleAnswer={handleAnswer}/>}           
                     </>
                 )
             case 1:
@@ -107,7 +117,8 @@ const Question = ({id, currentQuestion, nextQuestion, scorePoints, setBackground
                     </div>
                     <br />
                     { !(isAnswering) && <BuzzButton toggleAnswering={toggleAnswering}/> }
-                    { (isAnswering) &&  <AnswerField answer={firstFollowUpAnswer} setMessage={setMessage} scorePoints={scorePoints} availablePoints={5} setQuestionState={setQuestionState} toggleAnswering={toggleAnswering} handleQuestionFlow={handleQuestionFlow} setCurrentAnswer={setCurrentAnswer} handleAnswer={handleAnswer}/>}
+                    { (isAnswering) && (mode === 'multiple-choice') && <MCAnswerButtons correctAnswer={firstFollowUpAnswer} incorrectAnswers={MCAnswers.slice(3, 6)} setCurrentAnswer={setCurrentAnswer} handleAnswer={handleAnswer} availablePoints={5} currentAnswer={currentAnswer} />}
+                    { (isAnswering) && (mode === 'short-answer') && <AnswerField answer={firstFollowUpAnswer} setMessage={setMessage} scorePoints={scorePoints} availablePoints={5} setQuestionState={setQuestionState} toggleAnswering={toggleAnswering} handleQuestionFlow={handleQuestionFlow} setCurrentAnswer={setCurrentAnswer} handleAnswer={handleAnswer}/>}
                 </>
                     )
             case 2: 
@@ -119,7 +130,8 @@ const Question = ({id, currentQuestion, nextQuestion, scorePoints, setBackground
 
                     </div>
                     { !(isAnswering) && <BuzzButton toggleAnswering={toggleAnswering}/> }
-                    { (isAnswering) &&  <AnswerField answer={secondFollowUpAnswer} setMessage={setMessage} scorePoints={scorePoints} availablePoints={5} setQuestionState={setQuestionState} toggleAnswering={toggleAnswering} handleQuestionFlow={handleQuestionFlow} setCurrentAnswer={setCurrentAnswer} handleAnswer={handleAnswer}/>}
+                    { (isAnswering) && (mode === 'multiple-choice') && <MCAnswerButtons correctAnswer={secondFollowUpAnswer} incorrectAnswers={MCAnswers.slice(6)} setCurrentAnswer={setCurrentAnswer} handleAnswer={handleAnswer} availablePoints={5} currentAnswer={currentAnswer} />}
+                    { (isAnswering) && (mode === 'short-answer') && <AnswerField answer={secondFollowUpAnswer} setMessage={setMessage} scorePoints={scorePoints} availablePoints={5} setQuestionState={setQuestionState} toggleAnswering={toggleAnswering} handleQuestionFlow={handleQuestionFlow} setCurrentAnswer={setCurrentAnswer} handleAnswer={handleAnswer}/>}
                 </>                )
             case 3:
                 return ("u lose")

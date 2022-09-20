@@ -41,9 +41,29 @@ export const QUESTION_SET_BY_DIFFICULTY = gql`
   ${QUESTION_DETAILS}
 `
 
+export const MC_QUESTION_SET_BY_DIFFICULTY = gql`
+  query findQuestionByDifficulty($difficultyToSearch: String!) {
+    twentyMCQuestionsBySourceOrDifficulty(difficulty: $difficultyToSearch) {
+        ...QuestionDetails
+    }
+  }
+  ${QUESTION_DETAILS}
+
+`
+
 export const QUESTION_SET_BY_SOURCE = gql`
   query findQuestionBySource($sourceToSearch: String!) {
     twentyQuestionsBySourceOrDifficulty(source: $sourceToSearch) {
+        ...QuestionDetails
+    }
+  }
+  ${QUESTION_DETAILS}
+
+`
+
+export const MC_QUESTION_SET_BY_SOURCE = gql`
+  query findQuestionBySource($sourceToSearch: String!) {
+    twentyMCQuestionsBySourceOrDifficulty(source: $sourceToSearch) {
         ...QuestionDetails
     }
   }
@@ -68,6 +88,40 @@ export const QUESTION_SET_BY_DIFFICULTY_AND_SOURCE = gql`
     }
   }
   ${QUESTION_DETAILS}
-
 `
 
+// export const MC_QUESTION_SET_BY_DIFFICULTY_AND_SOURCE = gql`
+//   query findMCQuestionByDifficultyAndSource($sourceToSearch: String!, $difficultyToSearch: String!) {
+//     twentyMCQuestionsBySourceOrDifficulty(source: $sourceToSearch, difficulty: $difficultyToSearch) {
+//       id
+//       source
+//       difficulty
+//       round
+//       mainQuestion
+//       mainAnswer
+//       firstFollowUpQuestion
+//       firstFollowUpAnswer
+//       secondFollowUpQuestion
+//       secondFollowUpAnswer
+//       MCAnswers
+//     }
+//   }
+// `
+
+export const MC_QUESTION_SET_BY_DIFFICULTY_AND_SOURCE = gql`
+query TwentyMCQuestionsBySourceOrDifficulty($difficultyToSearch: String, $sourceToSearch: String) {
+  twentyMCQuestionsBySourceOrDifficulty(difficulty: $difficultyToSearch, source: $sourceToSearch) {
+    id
+    source
+    difficulty
+    round
+    mainQuestion
+    mainAnswer
+    firstFollowUpQuestion
+    firstFollowUpAnswer
+    secondFollowUpQuestion
+    secondFollowUpAnswer
+    MCAnswers
+  }
+}
+`
