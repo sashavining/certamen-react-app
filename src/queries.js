@@ -125,3 +125,17 @@ query TwentyMCQuestionsBySourceOrDifficulty($difficultyToSearch: String, $source
   }
 }
 `
+
+export const TIME_TRIAL_QUESTION_SET_BY_TOPIC = gql`
+query twentyTimeTrialQuestionsByCategory($categoryToSearch: String) {
+  twentyTimeTrialQuestionsByCategory(category: $categoryToSearch) {
+    id
+    source
+    category
+    question
+    answer
+    optimalWord
+    MCAnswers
+  }
+}
+`

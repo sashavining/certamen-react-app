@@ -98,7 +98,6 @@ const Question = ({mode, id, currentQuestion, nextQuestion, scorePoints, setBack
                     <>
                         <Timer counter={counter} setCounter={setCounter} duration={60} handleAnswer={handleAnswer} answer={mainAnswer} availablePoints={10}/>
                         <div className='question-text'>
-
                         { mainQuestion } 
                         </div>                        
                         <br />

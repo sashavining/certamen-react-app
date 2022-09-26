@@ -4,6 +4,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import SelectionScreen from './components/SelectionScreen'
 import RestartScreen from './components/RestartScreen'
+import TimeTrialQuiz from './components/TimeTrialQuiz'
 
 import React, { useState } from 'react';
 
@@ -11,7 +12,10 @@ const App = () => {
   // possible game states: 'playing', 'starting', 'ended'
   const [gameState, setGameState] = useState('starting');
   const [source, setSource] = useState('');
+  const [category, setCategory] = useState('');
   const [difficulty, setDifficulty] = useState('');
+  const [isTimeTrial, setIsTimeTrial] = useState(null)
+  const [questionInterval, setQuestionInterval] = useState('0')
   const [mode, setMode] = useState('');
   const [query, setQuery] = useState('')
   const [currentPoints, setCurrentPoints] = useState(0)
@@ -39,7 +43,7 @@ const App = () => {
       <Header />
       <div className="container">
         <main>
-          <SelectionScreen setSource={setSource} setDifficulty={setDifficulty} startPlaying={startPlaying} setQuery={setQuery} setMode={setMode} />
+          <SelectionScreen setCategory={setCategory} setSource={setSource} isTimeTrial={isTimeTrial} setIsTimeTrial={setIsTimeTrial} setDifficulty={setDifficulty} startPlaying={startPlaying} setQuery={setQuery} setMode={setMode} setQuestionInterval={setQuestionInterval} />
         </main>
       </div>
       <Footer />
@@ -50,7 +54,8 @@ const App = () => {
           <Header />
           <div className="container">
             <main>
-              <Quiz mode={mode} difficulty={difficulty} source={source} endPlaying={endPlaying} setCurrentPoints={setCurrentPoints} currentPoints={currentPoints} setBackgroundColor={setBackgroundColor}/>
+              {(!isTimeTrial) && <Quiz mode={mode} difficulty={difficulty} source={source} endPlaying={endPlaying} setCurrentPoints={setCurrentPoints} currentPoints={currentPoints} setBackgroundColor={setBackgroundColor}/> }
+              {(isTimeTrial) && <TimeTrialQuiz mode={mode} category={category} endPlaying={endPlaying} setCurrentPoints={setCurrentPoints} currentPoints={currentPoints} setBackgroundColor={setBackgroundColor} questionInterval={questionInterval}/> }
             </main>
           </div>
           <Footer />
