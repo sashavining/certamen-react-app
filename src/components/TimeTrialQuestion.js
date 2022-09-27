@@ -85,7 +85,7 @@ const TimeTrialQuestion = ({mode, id, currentQuestion, nextQuestion, scorePoints
                     </>
                 )
         } else {
-        return (<AnswerSlide wasCorrect={isCorrect} optimalWord={optimalWord} handleQuestionFlow={handleQuestionFlow} correctAnswer={correctAnswer} />)
+        return (<AnswerSlide wasCorrect={isCorrect} handleQuestionFlow={handleQuestionFlow} correctAnswer={correctAnswer} buzzedInString={displayString} optimalWord={optimalWord} questionText={question} questionInterval={questionInterval}/>)
     }
     
 }
