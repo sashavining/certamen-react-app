@@ -17,14 +17,16 @@ const AnswerSlide = ({wasCorrect, handleQuestionFlow, correctAnswer, buzzedInStr
         return punctuationLessString.replace(/\s{2,}/g," ");
     }
 
-    const differenceBetweenIdealAndActualBuzz = calculateDifferenceBetweenIdealAndActualInSeconds(optimalWord, questionText, buzzedInString, questionInterval)
+    console.log(buzzedInString, optimalWord)
+
+    const differenceBetweenIdealAndActualBuzz = (optimalWord) ? calculateDifferenceBetweenIdealAndActualInSeconds(optimalWord, questionText, buzzedInString, questionInterval) : ''
 
     return(
         <>
         <div class="feedback-text">
             {((wasCorrect) && "Correct! Great job.")}
             {((!wasCorrect) && `Incorrect! The answer we were looking for was: ${correctAnswer}`)}
-            {(buzzedInString && optimalWord) && (
+            {(typeof(buzzedInString) !== "undefined" && typeof(optimalWord) !== "undefined") && (
                 <>
                     <p className='my-1'>{`The question was: ${questionText}`}</p>
                     <p className='my-1'>{`The ideal buzz was at ${removePunctuation(optimalWord)}`}</p>
