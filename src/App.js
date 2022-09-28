@@ -36,6 +36,10 @@ const App = () => {
     setGameState('starting')
   }
 
+  const scorePoints = (points) => {
+    setCurrentPoints(prevPoints => prevPoints + points)
+  }
+
   // When called, useQuery makes the query it receives as a parameter. It returns an object with multiple fields. The field loading is true if the query has not received a response yet. Then the following code gets rendered:
     if (gameState === 'starting') {
       return (
@@ -54,15 +58,20 @@ const App = () => {
           <Header />
           <div className="container">
             <main>
-              {(!isTimeTrial) && <Quiz mode={mode} difficulty={difficulty} source={source} endPlaying={endPlaying} setCurrentPoints={setCurrentPoints} currentPoints={currentPoints} setBackgroundColor={setBackgroundColor}/> }
-              {(isTimeTrial) && <TimeTrialQuiz mode={mode} category={category} endPlaying={endPlaying} setCurrentPoints={setCurrentPoints} currentPoints={currentPoints} setBackgroundColor={setBackgroundColor} questionInterval={questionInterval}/> }
+              {(!isTimeTrial) && <Quiz mode={mode} difficulty={difficulty} source={source} endPlaying={endPlaying} setCurrentPoints={setCurrentPoints} currentPoints={currentPoints} setBackgroundColor={setBackgroundColor} scorePoints={scorePoints}/> }
+              {(isTimeTrial) && <TimeTrialQuiz mode={mode} category={category} endPlaying={endPlaying} setCurrentPoints={setCurrentPoints} currentPoints={currentPoints} setBackgroundColor={setBackgroundColor} questionInterval={questionInterval} scorePoints={scorePoints}/> }
             </main>
+            <div class="points-container text-center my-3">
+            Score: {currentPoints}
+            </div>
           </div>
+          
           <Footer />
         </body>
       )
     } else if (gameState === 'ended') {
       return (
+        <>
       <body className={backgroundColor}>
       <Header />
       <div className="container">
@@ -72,6 +81,7 @@ const App = () => {
       </div>
       <Footer />
       </body>
+      </>
       )
     }
   

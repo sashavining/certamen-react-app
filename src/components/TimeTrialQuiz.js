@@ -29,12 +29,7 @@ const TimeTrialQuiz = ({mode, category, endPlaying, setCurrentPoints, currentPoi
 
     let currentQuestion = data.twentyTimeTrialQuestionsByCategory[currentQuestionNumber]
     return (
-        <>
-        <TimeTrialQuestion mode={mode} currentQuestion={currentQuestion} nextQuestion={nextQuestion} scorePoints={scorePoints} setBackgroundColor={setBackgroundColor} questionInterval={questionInterval} />
-        <div className='points-container text-center my-3'>
-            Score: {currentPoints}
-        </div>
-        </>
+        <TimeTrialQuestion mode={mode} currentQuestion={currentQuestion} nextQuestion={nextQuestion} scorePoints={scorePoints} setBackgroundColor={setBackgroundColor} questionInterval={questionInterval} />    
     )
 }
   
