@@ -40,6 +40,11 @@ h1{
   margin: 0 auto;
 }
 
+.my-1{
+margin-top:.8rem;
+margin-bottom:.8rem;
+}
+
 .my-3{
   margin-top: 2rem;
   margin-bottom: 2rem;
@@ -93,23 +98,21 @@ input[type="radio"] {
 }
 
 .container{
-  height: 78vh;
+  min-height: 78vh;
+}
+
+.points-container{
+  font-size: 1.5rem;
 }
 
 main {
   background-color: #EEF0F2;
-  height: 60vh;
+  min-height: 60vh;
   width: 50vw;
   border-radius: 30px;
   margin: 0 auto;
   padding: 20px 35px;
   margin-top: 5vh;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 }
 
 .App-header {
@@ -149,6 +152,14 @@ main {
   text-align: center;
 }
 
+.text-green{
+  color: #5B9279
+}
+
+.text-red{
+  color: #e77575;
+}
+
 .source-select__input{
   width: 60%;
   margin-bottom: 20px;
@@ -174,11 +185,12 @@ main {
   grid-template-columns: 1fr 1fr;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media screen and (max-width:900px) {
+  main{
+    width: 95vw;
   }
-  to {
-    transform: rotate(360deg);
-  }
+}
+
+@media screen and (max-width:500px) {
+  
 }

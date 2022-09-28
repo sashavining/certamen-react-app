@@ -37,7 +37,7 @@ const MCAnswerButtons = ({setCurrentAnswer, correctAnswer, incorrectAnswers, han
     return (
         <div className="mc-button-container">
           {answerArray.map(answer => {
-            return(<button className="mc-button" onClick={(e) => handleClick(e, answer, correctAnswer, availablePoints)}>
+            return(<button key={answer} className="mc-button" onClick={(e) => handleClick(e, answer, correctAnswer, availablePoints)}>
               {answer}
               </button>)
           })

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const AnswerSlide = ({wasCorrect, handleQuestionFlow, correctAnswer, buzzedInString, optimalWord, questionText, questionInterval}) => {
 
@@ -9,13 +9,15 @@ const AnswerSlide = ({wasCorrect, handleQuestionFlow, correctAnswer, buzzedInStr
 
     const calculateDifferenceBetweenIdealAndActualInSeconds = (optimalWord, questionText, actualBuzzedInString, intervalInMs) => {
         let idealBuzzedInIndex = findBuzzInIndex(optimalWord, questionText)
-        console.log(idealBuzzedInIndex * intervalInMs)
         return (((actualBuzzedInString.length - 1) - idealBuzzedInIndex) * intervalInMs) / 1000
     }
 
+    const removePunctuation = (string) => {
+        let punctuationLessString = string.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"")
+        return punctuationLessString.replace(/\s{2,}/g," ");
+    }
+
     const differenceBetweenIdealAndActualBuzz = calculateDifferenceBetweenIdealAndActualInSeconds(optimalWord, questionText, buzzedInString, questionInterval)
-    
-    const lastWordOfActualBuzz = buzzedInString.split(" ").pop()
 
     return(
         <>
@@ -24,11 +26,18 @@ const AnswerSlide = ({wasCorrect, handleQuestionFlow, correctAnswer, buzzedInStr
             {((!wasCorrect) && `Incorrect! The answer we were looking for was: ${correctAnswer}`)}
             {(buzzedInString && optimalWord) && (
                 <>
-                    <p>{`The question was: ${questionText}`}</p>
-                    <p>{`The ideal buzz was at ${optimalWord.trim()}`}</p>
-                    <p>{(differenceBetweenIdealAndActualBuzz === 0) && `You buzzed in at the optimal time! Congratulations`}</p>
-                    <p>{(differenceBetweenIdealAndActualBuzz > 0) && `You buzzed in ${differenceBetweenIdealAndActualBuzz} seconds later than optimal!`}</p>
-                    <p>{(differenceBetweenIdealAndActualBuzz < 0) && `You buzzed in ${Math.abs(differenceBetweenIdealAndActualBuzz)} seconds earlier than optimal!`}</p>
+                    <p className='my-1'>{`The question was: ${questionText}`}</p>
+                    <p className='my-1'>{`The ideal buzz was at ${removePunctuation(optimalWord)}`}</p>
+                    <p className='my-1'>{(differenceBetweenIdealAndActualBuzz === 0) && `You buzzed in at the optimal time! Congratulations`}</p>
+                    <p className='my-1'>
+                        {(!(differenceBetweenIdealAndActualBuzz === 0)) && (<>
+                        <span>{"You buzzed in"}</span>
+                        <span className="text-green">{(differenceBetweenIdealAndActualBuzz < 0) && ` ${Math.abs(differenceBetweenIdealAndActualBuzz)} seconds earlier` }</span>
+                        <span className="text-red"> {(differenceBetweenIdealAndActualBuzz > 0) && ` ${differenceBetweenIdealAndActualBuzz} seconds later`} </span>
+                        <span>{"than optimal!"}</span>
+                        </>)
+                        }
+                    </p>
                 </>
             )}
         </div>

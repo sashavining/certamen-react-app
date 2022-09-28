@@ -14,7 +14,7 @@ const TimeTrialQuestion = ({mode, id, currentQuestion, nextQuestion, scorePoints
     const [message, setMessage] = useState('');
     const [isAnswering, setIsAnswering] = useState(false)
     const [currentAnswer, setCurrentAnswer] = useState('')
-    const [counter, setCounter] = useState(60);
+    const [counter, setCounter] = useState(40);
     const [isBetweenQuestions, setIsBetweenQuestions] = useState(false)
     const [isCorrect, setIsCorrect] = useState(false)
     const [correctAnswer, setCorrectAnswer] = useState('')
@@ -58,10 +58,10 @@ const TimeTrialQuestion = ({mode, id, currentQuestion, nextQuestion, scorePoints
         e.preventDefault()
         setBackgroundColor('background-white')
         if (isAnsweredCorrectly) {
-            setCounter(60)
+            setCounter(40)
             nextQuestion()
         } else if ((!isAnsweredCorrectly)) {
-            setCounter(60)
+            setCounter(40)
             nextQuestion()
         }
         setIsBetweenQuestions(false)

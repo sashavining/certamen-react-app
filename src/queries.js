@@ -90,24 +90,6 @@ export const QUESTION_SET_BY_DIFFICULTY_AND_SOURCE = gql`
   ${QUESTION_DETAILS}
 `
 
-// export const MC_QUESTION_SET_BY_DIFFICULTY_AND_SOURCE = gql`
-//   query findMCQuestionByDifficultyAndSource($sourceToSearch: String!, $difficultyToSearch: String!) {
-//     twentyMCQuestionsBySourceOrDifficulty(source: $sourceToSearch, difficulty: $difficultyToSearch) {
-//       id
-//       source
-//       difficulty
-//       round
-//       mainQuestion
-//       mainAnswer
-//       firstFollowUpQuestion
-//       firstFollowUpAnswer
-//       secondFollowUpQuestion
-//       secondFollowUpAnswer
-//       MCAnswers
-//     }
-//   }
-// `
-
 export const MC_QUESTION_SET_BY_DIFFICULTY_AND_SOURCE = gql`
 query TwentyMCQuestionsBySourceOrDifficulty($difficultyToSearch: String, $sourceToSearch: String) {
   twentyMCQuestionsBySourceOrDifficulty(difficulty: $difficultyToSearch, source: $sourceToSearch) {
@@ -129,7 +111,6 @@ query TwentyMCQuestionsBySourceOrDifficulty($difficultyToSearch: String, $source
 export const TIME_TRIAL_QUESTION_SET_BY_TOPIC = gql`
 query twentyTimeTrialQuestionsByCategory($categoryToSearch: String) {
   twentyTimeTrialQuestionsByCategory(category: $categoryToSearch) {
-    id
     source
     category
     question
