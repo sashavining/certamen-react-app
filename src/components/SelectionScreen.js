@@ -15,17 +15,20 @@ const SelecionScreen = ({setCategory, setSource, setDifficulty, startPlaying, se
         {(isTimeTrial === null) && (
             <form onSubmit={(e) => handleFormSubmit(e)}>
             <fieldset onChange={(e) => setCurrentSelection(e.target.value)}>
-                <legend>Select a mode:</legend>
+                <legend className='text-center my-3'><h2>Select a mode:</h2></legend>
 
-                <label class="form-control"><input type="radio" id="Any" name="is-time-trial" value="true" />
-                Time Trial</label>
+                <label className="form-control">
+                    <input class='custom-radio' type="radio" id="Any" name="is-time-trial" value="true" />
+                    Time Trial
+                </label>
 
-                <label class="form-control"><input type="radio" id="Novice" name="is-time-trial" value="false" />
-                Non-time-trial</label>
+                <label className="form-control">
+                    <input class='custom-radio' type="radio" id="Novice" name="is-time-trial" value="false" />
+                    Non-time-trial
+                </label>
             </fieldset>
-            <button type="submit">Submit</button>
+            <button className='my-3' type="submit">Submit</button>
             </form>
-            // set whether it is a time trial or not
         )} 
         {(isTimeTrial === false) && (
             <NonTimedSelectionScreen 

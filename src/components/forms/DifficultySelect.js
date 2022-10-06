@@ -18,7 +18,8 @@ Intermediate</label>
 <label class="form-control"><input type="radio" id="Advanced" name="difficulty" value="Advanced"/>
 Advanced</label>
 
-</fieldset>)
+</fieldset>
+)
 
 }
 

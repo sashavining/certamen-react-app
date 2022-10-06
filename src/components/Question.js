@@ -1,6 +1,5 @@
 
 import React, { useState, useEffect } from 'react';
-import SingleQuestion from './SingleQuestion'
 import Timer from './Timer'
 import BuzzButton from './BuzzButton'
 import AnswerField from './AnswerField'
@@ -135,7 +134,7 @@ const Question = ({mode, id, currentQuestion, nextQuestion, scorePoints, setBack
             case 3:
                 return ("u lose")
             default:
-                return (<>Deeeefault!</>)
+                return (<>Something went wrong!</>)
         }    
     } else {
         return (<AnswerSlide wasCorrect={isCorrect} handleQuestionFlow={handleQuestionFlow} correctAnswer={correctAnswer} />)

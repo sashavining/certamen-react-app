@@ -24,7 +24,6 @@ client.query({ query })
 
   const root = ReactDOM.createRoot(document.getElementById('root'));
 
-  // wrapping in ApolloProvider makes the client available throughout the app
   root.render(
     <ApolloProvider client={client}>
       <App />

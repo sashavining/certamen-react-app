@@ -33,7 +33,7 @@ const NonTimedSelectionScreen = ({setSource, setDifficulty, startPlaying, setQue
         <DifficultySelect setCurrentDifficulty={setCurrentDifficulty} />
         <SourceSelect setCurrentSource={setCurrentSource} />
         <GameTypeSelect setGameType={setCurrentMode} />
-        <button type="submit" class="center">Submit</button>
+        <button type="submit" class="my-3 center">Submit</button>
        </form>    )
 }
   

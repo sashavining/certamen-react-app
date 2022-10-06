@@ -11,6 +11,47 @@
   box-sizing: border-box;
 }
 
+input[type="radio"] {
+  /* The native appearance is hidden */
+  appearance: none;
+  -webkit-appearance: none;
+
+  /* For a circular appearance we need a border-radius. */
+  border-radius: 50%;
+
+  /* The background will be the radio dot's color. */
+  background: #e0d0ee;
+
+  /* The border will be the spacing between the dot and the outer circle */
+  border: 3px solid #FFF;
+
+  /* And by creating a box-shadow with no offset and no blur, we have an outer circle */
+  box-shadow: 0 0 0 1px #724E91;
+}
+
+input[type="radio"] {
+  margin-top: -1px;
+  vertical-align: middle;
+}
+
+
+input[type="radio"]:checked {
+  /* The native appearance is hidden */
+  appearance: none;
+  -webkit-appearance: none;
+
+  /* For a circular appearance we need a border-radius. */
+  border-radius: 50%;
+
+  /* The background will be the radio dot's color. */
+  background: #724E91;
+
+  /* The border will be the spacing between the dot and the outer circle */
+  border: 3px solid #FFF;
+
+  /* And by creating a box-shadow with no offset and no blur, we have an outer circle */
+  box-shadow: 0 0 0 1px #724E91;
+}
 
 h1, h2, h3, h4, h5{
   font-family: 'Cinzel';
@@ -80,7 +121,7 @@ fieldset {
 }
 
 label {
-  display:  block;
+  display:  inline block;
   margin: 1vh 0vw;
 }
 
@@ -183,6 +224,17 @@ main {
   display:grid;
   gap: 20px;
   grid-template-columns: 1fr 1fr;
+}
+
+label,
+small {
+    margin-top: 0.1em;
+}
+
+input[type="radio"] {
+    height: 1.2rem;
+    width: 1.2rem;
+    margin-right: 0.5rem;
 }
 
 @media screen and (max-width:900px) {

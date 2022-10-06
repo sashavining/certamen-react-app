@@ -1,6 +1,5 @@
 
 import React, { useState, useEffect } from 'react';
-import SingleQuestion from './SingleQuestion'
 import Timer from './Timer'
 import BuzzButton from './BuzzButton'
 import AnswerField from './AnswerField'

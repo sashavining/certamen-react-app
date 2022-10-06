@@ -34,7 +34,7 @@ const TimedSelectionScreen = ({setCategory, setMode, setQuestionInterval, startP
         <GameTypeSelect setGameType={setCurrentMode} />
         <QuestionIntervalSelect setCurrentInterval={setCurrentInterval} />
 
-        <button type="submit" onClick={(e) => handleSubmit(e)}>Submit</button>
+        <button  class='my-3' type="submit" onClick={(e) => handleSubmit(e)}>Submit</button>
        </form>    
        )
 }
