@@ -35,7 +35,7 @@ const MCAnswerButtons = ({setCurrentAnswer, correctAnswer, incorrectAnswers, han
 
       
     return (
-        <div className="rectangle-button-container grid-container gap-15 columns-2 mt-neg-50">
+        <div className="rectangle-button-container grid-container gap-15 columns-2">
           {answerArray.map(answer => {
             return(<button key={answer} className="button-rectangle button-tall" onClick={(e) => handleClick(e, answer, correctAnswer, availablePoints)}>
               {answer}
