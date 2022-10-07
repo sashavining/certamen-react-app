@@ -20,7 +20,7 @@ const Card = ({title, body, makeSelection, value, currentSelection}) => {
     }
 
     return (
-        <div className={`text-white text-center corners-rounded-5 px-3 pb-3 m-3 mb-6 ${bgClass}`} onClick={handleClick}>
+        <div className={`text-white text-center corners-rounded-5 px-3 pb-3 m-3 mb-6 mobile-mb-2 ${bgClass}`} onClick={handleClick}>
             <h3 className="my-1">{title}</h3>
             {body}
         </div>

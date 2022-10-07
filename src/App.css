@@ -304,13 +304,37 @@ input[type="radio"] {
     width: 1.2rem;
     margin-right: 0.5rem;
 }
+@media screen and (max-width:1600px) {
+  main{
+    width: 65vw;
+  }
+}
 
-@media screen and (max-width:900px) {
+@media screen and (max-width:1400px) {
+  main{
+    width: 75vw;
+  }
+}
+
+@media screen and (max-width:1200px) {
+  main{
+    width: 85vw;
+  }
+}
+
+
+@media screen and (max-width:1000px) {
   main{
     width: 95vw;
   }
 }
 
-@media screen and (max-width:500px) {
-  
+@media screen and (max-width:600px) {
+  .columns-2 {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  .mobile-mb-2 {
+    margin-bottom: 1.25rem;
+  }
 }
