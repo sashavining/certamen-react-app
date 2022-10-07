@@ -6,20 +6,20 @@ return (
 <fieldset>
 <legend htmlFor='question-read-speed'>Select a question read speed:</legend>
 
-<select id='question-read-speed' name="question-read-speed" onChange={(e) => {setCurrentInterval(e.target.value)}}>
-<option class='form-control source-select__input' value="500">
+<select className="input-per60" id='question-read-speed' name="question-read-speed" onChange={(e) => {setCurrentInterval(e.target.value)}}>
+<option class='form-control' value="500">
 Slowest</option>
 
-<option class='form-control source-select__input' value="300">
+<option class='form-control' value="300">
 Slower</option>
 
-<option class='form-control source-select__input' value="200">
+<option class='form-control' value="200">
 Medium</option>
 
-<option class='form-control source-select__input' value="150">
+<option class='form-control' value="150">
 Faster</option>
 
-<option class='form-control source-select__input' value="50">
+<option class='form-control' value="50">
 Fastest</option>
 
 </select>

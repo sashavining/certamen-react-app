@@ -33,7 +33,7 @@ const TimedSelectionScreen = ({setCategory, setMode, setQuestionInterval, startP
         <CategorySelect setCurrentCategory={setCurrentCategory} />
         <GameTypeSelect setGameType={setCurrentMode} />
         <QuestionIntervalSelect setCurrentInterval={setCurrentInterval} />
-        <div className="rectangle-button-container"><button className='my-3 button-rectangle button-short' type="submit" onClick={(e) => handleSubmit(e)}>Submit</button></div>
+        <div className="rectangle-button-container my-3"><button className='my-3 button-rectangle button-short' type="submit" onClick={(e) => handleSubmit(e)}>Submit</button></div>
        </form>    
        )
 }

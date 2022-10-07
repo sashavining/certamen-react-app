@@ -18,8 +18,8 @@ const SelecionScreen = ({setCategory, setSource, setDifficulty, startPlaying, se
             <fieldset onChange={(e) => setCurrentSelection(e.target.value)}>
                 <legend className='text-center my-3'><h2>Select a mode:</h2></legend>
 
-                <Card title={"Placeholder true :)"} body={"Body text placeholder :)"} makeSelection={setCurrentSelection} value={"true"} currentSelection={currentSelection} />
-                <Card title={"Placeholder false :)"} body={"Body text placeholder :)"} makeSelection={setCurrentSelection} value={"false"} currentSelection={currentSelection} />
+                <Card title={"Timed"} body={"Play a round of 20 time-trial questions. These questions will fade in letter by letter. You will have the opportunity to interrupt them mid-question to practice your question timing."} makeSelection={setCurrentSelection} value={"true"} currentSelection={currentSelection} />
+                <Card title={"Non-timed"} body={"Play a round of 20 questions. Each question will be totally visible at the start of each round and the question timer will load in with the question. Practice answering without the pressure!"} makeSelection={setCurrentSelection} value={"false"} currentSelection={currentSelection} />
 
             </fieldset>
             <div className="rectangle-button-container">
