@@ -6,7 +6,7 @@ const AnswerField = ({handleAnswer, setCurrentAnswer, handleQuestionFlow, toggle
    
     return(
         <form onSubmit={(e) => handleAnswer(e, answer, availablePoints)} className='answer-field'>
-            <input type="text" className="input-per60 mb-3" onChange={(e) => setCurrentAnswer(e.target.value)}></input>
+            <input type="text" className="input-per60 mb-6" onChange={(e) => setCurrentAnswer(e.target.value)}></input>
             <AnswerButton/>
         </form>
     )

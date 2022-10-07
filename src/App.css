@@ -77,18 +77,10 @@ h2{
   background-color: #9065AE;
 }
 
-.background-lavender:hover{
-  background-color: #693497;
-}
 
 .background-dark-purple{
   background-color: #693497;
 }
-
-.background-dark-purple:hover{
-  background-color: #9065AE;
-}
-
 
 
 h1{
@@ -264,6 +256,7 @@ main {
 
 .button-tall{
   height: 100px;
+  width: 90%;
 }
 
 .button-short{
@@ -337,4 +330,8 @@ input[type="radio"] {
   .mobile-mb-2 {
     margin-bottom: 1.25rem;
   }
+  .mt-neg-50{
+    margin-top: -50px;
+  }
 }
+
