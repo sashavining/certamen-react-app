@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 const Timer = ({answer, availablePoints, counter, duration, toggleAnswering, handleAnswer, setCounter}) => {
 

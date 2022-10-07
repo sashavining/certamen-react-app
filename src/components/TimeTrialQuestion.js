@@ -1,6 +1,5 @@
 
 import React, { useState, useEffect } from 'react';
-import SingleQuestion from './SingleQuestion'
 import Timer from './Timer'
 import BuzzButton from './BuzzButton'
 import AnswerField from './AnswerField'
@@ -71,14 +70,11 @@ const TimeTrialQuestion = ({mode, id, currentQuestion, nextQuestion, scorePoints
     if (!isBetweenQuestions) {
                 return (
                     <>
-                        {/* have a piece of state that tracks whether the question has been faded in / not. have !thatPieceOfState && the timer */}
                         { (isAnswering) && <Timer counter={counter} setCounter={setCounter} duration={40} handleAnswer={handleAnswer} answer={answer} availablePoints={10}/> }
-                        <div className='question-text'>
+                        <div className='question-text mb-3'>
                         { (!isAnswering) && <FadingQuestionText question={question} toggleAnswering={toggleAnswering} displayString={displayString} setDisplayString={setDisplayString} questionInterval={questionInterval} /> }
                         { (isAnswering) && displayString}
                         </div>                        
-                        <br />
-                        <br />
                         { !(isAnswering) && <BuzzButton toggleAnswering={toggleAnswering}/> }
                         { (isAnswering) && (mode === 'multiple-choice') && <MCAnswerButtons correctAnswer={answer} incorrectAnswers={MCAnswers.slice(0, 3)} setCurrentAnswer={setCurrentAnswer} handleAnswer={handleAnswer} availablePoints={10} currentAnswer={currentAnswer} />}
                         { (isAnswering) && (mode === 'short-answer') && <AnswerField answer={answer} setMessage={setMessage} scorePoints={scorePoints} availablePoints={10} toggleAnswering={toggleAnswering} handleQuestionFlow={handleQuestionFlow} setCurrentAnswer={setCurrentAnswer} handleAnswer={handleAnswer}/>}           

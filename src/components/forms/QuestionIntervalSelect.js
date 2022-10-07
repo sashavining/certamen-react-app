@@ -3,23 +3,26 @@ import '../../styles/form-control.css'
 const QuestionIntervalSelect = ({setCurrentInterval}) => {
 
 return (
-<fieldset onChange={(e) => setCurrentInterval(e.target.value)}>
-<legend>Select a question read speed:</legend>
+<fieldset>
+<legend htmlFor='question-read-speed'>Select a question read speed:</legend>
 
-<label class="form-control"><input type="radio" id="short-answer" name="question-read-speed" value="500" />
-Slowest</label>
+<select className="input-per60" id='question-read-speed' name="question-read-speed" onChange={(e) => {setCurrentInterval(e.target.value)}}>
+<option class='form-control' value="500">
+Slowest</option>
 
-<label class="form-control"><input type="radio" id="short-answer" name="question-read-speed" value="300" />
-Slower</label>
+<option class='form-control' value="300">
+Slower</option>
 
-<label class="form-control"><input type="radio" id="multiple-choice" name="question-read-speed" value="200" />
-Medium</label>
+<option class='form-control' value="200">
+Medium</option>
 
-<label class="form-control"><input type="radio" id="multiple-choice" name="question-read-speed" value="150" />
-Faster</label>
+<option class='form-control' value="150">
+Faster</option>
 
-<label class="form-control"><input type="radio" id="multiple-choice" name="question-read-speed" value="50" />
-Fastest</label>
+<option class='form-control' value="50">
+Fastest</option>
+
+</select>
 
 </fieldset>)
 

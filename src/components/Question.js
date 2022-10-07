@@ -1,6 +1,5 @@
 
 import React, { useState, useEffect } from 'react';
-import SingleQuestion from './SingleQuestion'
 import Timer from './Timer'
 import BuzzButton from './BuzzButton'
 import AnswerField from './AnswerField'
@@ -132,10 +131,8 @@ const Question = ({mode, id, currentQuestion, nextQuestion, scorePoints, setBack
                     { (isAnswering) && (mode === 'multiple-choice') && <MCAnswerButtons correctAnswer={secondFollowUpAnswer} incorrectAnswers={MCAnswers.slice(6)} setCurrentAnswer={setCurrentAnswer} handleAnswer={handleAnswer} availablePoints={5} currentAnswer={currentAnswer} />}
                     { (isAnswering) && (mode === 'short-answer') && <AnswerField answer={secondFollowUpAnswer} setMessage={setMessage} scorePoints={scorePoints} availablePoints={5} setQuestionState={setQuestionState} toggleAnswering={toggleAnswering} handleQuestionFlow={handleQuestionFlow} setCurrentAnswer={setCurrentAnswer} handleAnswer={handleAnswer}/>}
                 </>                )
-            case 3:
-                return ("u lose")
             default:
-                return (<>Deeeefault!</>)
+                return (<>Something went wrong!</>)
         }    
     } else {
         return (<AnswerSlide wasCorrect={isCorrect} handleQuestionFlow={handleQuestionFlow} correctAnswer={correctAnswer} />)

@@ -1,30 +1,31 @@
 
 const CategorySelect = ({setCurrentCategory}) => {
     return (
-    <fieldset onChange={(e) => setCurrentCategory(e.target.value)}>
-    <legend>Select a category for your game:</legend>
+    <fieldset className="mb-1">
+    <legend htmlFor='question-category'>Select a category for your game:</legend>
+    <select className="input-per60" id='question-category' name="category" onChange={(e) => setCurrentCategory(e.target.value)}>
+
+    <option class='form-control' value="">
+    Any</option>
     
-    <label class="form-control"><input type="radio" id="Any" name="category" value="" />
-    Any</label>
+    <option class='form-control' value="Myth">
+    Myth</option>
     
-    <label class="form-control"><input type="radio" id="Novice" name="category" value="Myth" />
-    Myth</label>
+    <option class='form-control' value="History">
+    History</option>
     
-    <label class="form-control"><input type="radio" id="Intermediate" name="category" value="History" />
-    History</label>
+    <option class='form-control' value="Literature">
+    Literature</option>
     
-    <label class="form-control"><input type="radio" id="Advanced" name="category" value="Literature"/>
-    Literature</label>
+    <option class='form-control' value="Culture">
+    Culture</option>
     
-    <label class="form-control"><input type="radio" id="Advanced" name="category" value="Culture"/>
-    Culture</label>
+    <option class='form-control' value="PMAQ">
+    PMAQ</option>
     
-    <label class="form-control"><input type="radio" id="Advanced" name="category" value="PMAQ"/>
-    PMAQ</label>
-    
-    <label class="form-control"><input type="radio" id="Advanced" name="category" value="Derivatives"/>
-    Derivatives</label>
-    
+    <option class='form-control' value="Derivatives">
+    Derivatives</option>
+    </select>
     </fieldset>
     
     )    

@@ -45,7 +45,7 @@ const App = () => {
       return (
       <body className={backgroundColor}>
       <Header />
-      <div className="container">
+      <div className="container mobile-mb-2">
         <main>
           <SelectionScreen setCategory={setCategory} setSource={setSource} isTimeTrial={isTimeTrial} setIsTimeTrial={setIsTimeTrial} setDifficulty={setDifficulty} startPlaying={startPlaying} setQuery={setQuery} setMode={setMode} setQuestionInterval={setQuestionInterval} />
         </main>
@@ -61,11 +61,11 @@ const App = () => {
               {(!isTimeTrial) && <Quiz mode={mode} difficulty={difficulty} source={source} endPlaying={endPlaying} setCurrentPoints={setCurrentPoints} currentPoints={currentPoints} setBackgroundColor={setBackgroundColor} scorePoints={scorePoints}/> }
               {(isTimeTrial) && <TimeTrialQuiz mode={mode} category={category} endPlaying={endPlaying} setCurrentPoints={setCurrentPoints} currentPoints={currentPoints} setBackgroundColor={setBackgroundColor} questionInterval={questionInterval} scorePoints={scorePoints}/> }
             </main>
-            <div class="points-container text-center my-3">
+            <div class="points-container text-center my-1 mobile-mb-2">
             Score: {currentPoints}
             </div>
           </div>
-          
+
           <Footer />
         </body>
       )
@@ -74,7 +74,7 @@ const App = () => {
         <>
       <body className={backgroundColor}>
       <Header />
-      <div className="container">
+      <div className="container mobile-mb-2">
         <main>
           <RestartScreen goToStart={goToStart} finalScore={currentPoints}/>
         </main>

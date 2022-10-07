@@ -43,7 +43,9 @@ const AnswerSlide = ({wasCorrect, handleQuestionFlow, correctAnswer, buzzedInStr
                 </>
             )}
         </div>
-        <button onClick={(e) => handleQuestionFlow(e, wasCorrect)}>Next</button>
+        <div className="rectangle-button-container">
+            <button className="button-rectangle button-short" onClick={(e) => handleQuestionFlow(e, wasCorrect)}>Next</button>
+        </div>
         </>
     )
 }

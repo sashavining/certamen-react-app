@@ -15,7 +15,7 @@ const SourceSelect = ({setCurrentSource}) => {
         <>
         <label htmlFor='certamen-source'> Source:        </label>
         <div className='source-select'>
-        <select className='source-select__input' id='certamen-source' onChange={(e) => setCurrentSource(e.target.value)}>
+        <select className='input-per60' id='certamen-source' onChange={(e) => setCurrentSource(e.target.value)}>
         {
         result.data.uniqueSources.map((source) => {
             return (
