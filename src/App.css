@@ -69,6 +69,23 @@ h1, h2, h3, h4, h5{
   background-color: #D0EBDF;
 }
 
+.background-lavender{
+  background-color: #9065AE;
+}
+
+.background-lavender:hover{
+  background-color: #693497;
+}
+
+.background-dark-purple{
+  background-color: #693497;
+}
+
+.background-dark-purple:hover{
+  background-color: #9065AE;
+}
+
+
 
 h1{
   color: #F8C630;
@@ -210,7 +227,7 @@ main {
   color: #61dafb;
 }
 
-.mc-button {
+.button-rectangle {
   border-radius:4px;
   padding: 5px;
   margin: 5px;
@@ -219,16 +236,41 @@ main {
   margin: 0 auto;
 }
 
-.mc-button-container{
-  margin: 0 auto;
+.button-tall{
+  height: 100px;
+}
+
+.button-short{
+  height:50px;
+}
+
+.rectangle-button-container{
+  text-align: center;
+}
+
+.corners-rounded-5{
+  border-radius: 5px;
+}
+
+.grid-container{
   display:grid;
-  gap: 20px;
+}
+
+.columns-2 {
   grid-template-columns: 1fr 1fr;
+}
+
+.gap-15{
+  gap: 15px;
 }
 
 label,
 small {
     margin-top: 0.1em;
+}
+
+.text-white{
+  color:white;
 }
 
 input[type="radio"] {

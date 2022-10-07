@@ -6,7 +6,7 @@ import QuestionIntervalSelect from './forms/QuestionIntervalSelect';
 const TimedSelectionScreen = ({setCategory, setMode, setQuestionInterval, startPlaying}) => {
     const [currentCategory, setCurrentCategory] = useState('');
     const [currentMode, setCurrentMode] = useState('')
-    const [currentInterval, setCurrentInterval] = useState(0)
+    const [currentInterval, setCurrentInterval] = useState("500")
     
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -33,8 +33,7 @@ const TimedSelectionScreen = ({setCategory, setMode, setQuestionInterval, startP
         <CategorySelect setCurrentCategory={setCurrentCategory} />
         <GameTypeSelect setGameType={setCurrentMode} />
         <QuestionIntervalSelect setCurrentInterval={setCurrentInterval} />
-
-        <button  class='my-3' type="submit" onClick={(e) => handleSubmit(e)}>Submit</button>
+        <div className="rectangle-button-container"><button className='my-3 button-rectangle button-short' type="submit" onClick={(e) => handleSubmit(e)}>Submit</button></div>
        </form>    
        )
 }

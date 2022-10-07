@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import NonTimedSelectionScreen from './NonTimedSelectionScreen';
 import TimedSelectionScreen from './TimedSelectionScreen'
+import Card from './Card'
 
 const SelecionScreen = ({setCategory, setSource, setDifficulty, startPlaying, setMode, setIsTimeTrial, isTimeTrial, setQuestionInterval}) => {
     
@@ -17,17 +18,13 @@ const SelecionScreen = ({setCategory, setSource, setDifficulty, startPlaying, se
             <fieldset onChange={(e) => setCurrentSelection(e.target.value)}>
                 <legend className='text-center my-3'><h2>Select a mode:</h2></legend>
 
-                <label className="form-control">
-                    <input class='custom-radio' type="radio" id="Any" name="is-time-trial" value="true" />
-                    Time Trial
-                </label>
+                <Card title={"Placeholder true :)"} body={"Body text placeholder :)"} makeSelection={setCurrentSelection} value={"true"} currentSelection={currentSelection} />
+                <Card title={"Placeholder false :)"} body={"Body text placeholder :)"} makeSelection={setCurrentSelection} value={"false"} currentSelection={currentSelection} />
 
-                <label className="form-control">
-                    <input class='custom-radio' type="radio" id="Novice" name="is-time-trial" value="false" />
-                    Non-time-trial
-                </label>
             </fieldset>
-            <button className='my-3' type="submit">Submit</button>
+            <div className="rectangle-button-container">
+                <button className='my-3 button-rectangle button-short' type="submit">Submit</button>
+            </div>
             </form>
         )} 
         {(isTimeTrial === false) && (
