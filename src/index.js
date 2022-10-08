@@ -5,7 +5,7 @@ import App from './App.js'
 import { ApolloClient, ApolloProvider, HttpLink, InMemoryCache, gql } from '@apollo/client'
 
 const client = new ApolloClient({
-  cache: new InMemoryCache(`cache: "bounded"`),
+  cache: new InMemoryCache(),
   link: new HttpLink({
     uri: 'https://panicky-jade-beanie.cyclic.app/',
   })
