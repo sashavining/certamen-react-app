@@ -53,7 +53,7 @@ input[type="radio"]:checked {
   box-shadow: 0 0 0 1px #724E91;
 }
 
-h1, h2, h3, h4, h5{
+h1, h2, h3, h4, h5, .font-ornate{
   font-family: 'Cinzel';
 }
 
@@ -90,6 +90,22 @@ h1{
   text-align:center;
 }
 
+.bold{
+  color: #724E91;
+  font-weight: 800;
+}
+.double-line-height{
+  line-height: 1.4rem;
+}
+
+a{
+  color: #724E91;
+}
+
+a:hover{
+  color: #9065AE;
+}
+
 .center{
   margin: 0 auto;
 }
@@ -119,7 +135,6 @@ margin-bottom:.8rem;
 .mb-6{
   margin-bottom:4rem;
 }
-
 
 .px-3{
   padding: 1rem;
@@ -299,7 +314,7 @@ input[type="radio"] {
 }
 @media screen and (max-width:1600px) {
   main{
-    width: 65vw;
+    width: 55vw;
   }
 }
 

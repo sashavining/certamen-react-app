@@ -2,7 +2,7 @@
 const CategorySelect = ({setCurrentCategory}) => {
     return (
     <fieldset className="mb-1">
-    <legend htmlFor='question-category'>Select a category for your game:</legend>
+    <legend htmlFor='question-category' className="mb-1">Select a category for your game:</legend>
     <select className="input-per60" id='question-category' name="category" onChange={(e) => setCurrentCategory(e.target.value)}>
 
     <option class='form-control' value="">
