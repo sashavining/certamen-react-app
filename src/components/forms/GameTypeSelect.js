@@ -4,7 +4,7 @@ const GameTypeSelect = ({setGameType}) => {
 
 return (
 <fieldset onChange={(e) => setGameType(e.target.value)} className="mb-1">
-<legend>Select a game type:</legend>
+<legend className="mb-1">Select a game type:</legend>
 
 <label class="form-control"><input type="radio" id="short-answer" name="game-mode" value="short-answer" />
 Short Answer</label>
