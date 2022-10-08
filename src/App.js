@@ -79,7 +79,7 @@ const App = () => {
               {(isTimeTrial) && <TimeTrialQuiz mode={mode} category={category} endPlaying={endPlaying} setCurrentPoints={setCurrentPoints} currentPoints={currentPoints} setBackgroundColor={setBackgroundColor} questionInterval={questionInterval} scorePoints={scorePoints}/> }
             </main>
             <div class="points-container text-center my-1 mobile-mb-2 font-ornate">
-            Score: {currentPoints}
+              Score: {currentPoints}
             </div>
           </div>
           <Footer />
