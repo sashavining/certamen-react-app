@@ -10,7 +10,7 @@ const StartScreen = ({handleClick}) => {
             Welcome to <span class="bold">Certator</span>, an open-source application for practicing certamen - the Quiz-Bowl-style game for Latin students. This app follows <a href="https://www.njcl.org/certamen">ACL's rules for the game</a>. It currently supports time-trial and non-time-trial modes, as well as modes with and without follow-up questions. I have drawn questions from the Harvard, Yale, and Princeton certamens, as well as the question sets available with the <a href="https://docs.google.com/document/d/1wn2cPrTzuoozvtrpA99QcJODzdpvb6I9EyMXGH5JnfI/edit">Certamen Starter Kit</a>.
         </p>
         <p class="px-3 double-line-height mb-3">
-            Please visit our Notion site (coming soon!) if you are interested in the rationale behind the site and how to get involved. You can visit the <a href="https://github.com/sashavining/certamen-react-app">frontend</a> or <a href="https://github.com/sashavining/certamen-quizzer-graphql-server">backend</a> Github repositories if you are interested in the source code.
+            Please visit Certator's Notion site (coming soon!) if you are interested in the rationale behind the site and how to get involved. You can view the <a href="https://github.com/sashavining/certamen-react-app">frontend</a> or <a href="https://github.com/sashavining/certamen-quizzer-graphql-server">backend</a> Github repositories if you are interested in the source code.
         </p>
         </div>
         <div className="rectangle-button-container">

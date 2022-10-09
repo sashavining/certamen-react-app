@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/certamen-react-app/static/css/main.cbe5122a.css",
+    "main.js": "/certamen-react-app/static/js/main.5a9f43d1.js",
+    "index.html": "/certamen-react-app/index.html",
+    "main.cbe5122a.css.map": "/certamen-react-app/static/css/main.cbe5122a.css.map",
+    "main.5a9f43d1.js.map": "/certamen-react-app/static/js/main.5a9f43d1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cbe5122a.css",
+    "static/js/main.5a9f43d1.js"
+  ]
+}
