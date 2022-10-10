@@ -1,70 +1,30 @@
-# Getting Started with Create React App
+# Certator
+An app for practicing the Quiz-Bowl-style game for Latin students, certamen.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+There is currently no app (web or mobile) that allows players to practice the core strategy of the game: interrupting the asker mid-question. There are comparable apps for quiz bowl or general trivia games, but none that either 1) come pre-loaded with certamen questions or 2) are customizable enough to allow for certamen questions to be loaded into the application. Enter Certator!
 
-## Available Scripts
+**Link to project:** https://certator.netlify.app
 
-In the project directory, you can run:
+<img width="678" alt="Screenshot of Certator being played" src="https://user-images.githubusercontent.com/96848086/194965589-2d8b8fb9-3fe2-4d49-a90c-a45505bd132a.png">
 
-### `npm start`
+## How It's Made:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**Tech used:** React, JavaScript, Node, MongoDB, Mongoose, GraphQL, Apollo GraphQL, HTML, CSS 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Full-stack quiz app built with a GraphQL API and React front-end (backend repo found here: https://github.com/sashavining/certamen-quizzer-graphql-server). Play rounds of certamen in two different modes: one built to closely simulate the experience of interrupting the question reader, and the other which allows the player to read the entire question before answering. 
 
-### `npm test`
+## Optimizations
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Based on feedback on this early prototype, there are a few areas where I can optimize the app:
 
-### `npm run build`
+1. In the type of user input it accepts. Currently, it only accepts an exact character-for-character match for the answer it has in the database. I have been looking into various string matching algorithms to figure out a better way to accept answers that are 'close'.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. In the number of question sets it supports. Currently, I have just over 1,000 questions in the app. There are many thousands more questions out there to be OCR'd or transcribed and entered into the database.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. In the way that I am determining "optimal" buzz time. Currently, I am basing this off of a single question set where the optimal buzz has been marked. In the future, I would like to move away from an "optimal buzz" model to a percentile model, where you are told how quickly you answered relative to others who gave correct answers.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+I also would like to re-write many of the React components with better design patterns to promote reusability in the future. Currently, I am not satisfied with how my components are structured.
 
-### `npm run eject`
+## Lessons Learned:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+I learned a lot about GraphQL and the tradeoffs of using it over REST, particularly for smaller projects. This was also the first substantial project I built in React, so I learned a lot about React design patterns (in particular, HOC and render props), as well as how to use Apollo GraphQL + React on the front end.
