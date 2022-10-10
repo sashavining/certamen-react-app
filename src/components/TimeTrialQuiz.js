@@ -21,7 +21,8 @@ const TimeTrialQuiz = ({mode, category, endPlaying, setCurrentPoints, currentPoi
     }
 
     const { loading, error, data } = useQuery(TIME_TRIAL_QUESTION_SET_BY_TOPIC, 
-        {variables: {categoryToSearch: category}});
+        { fetchPolicy: 'cache-and-network',
+        variables: {categoryToSearch: category}});
 
 
     if (loading) return 'Loading...';
