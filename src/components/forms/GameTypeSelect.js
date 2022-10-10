@@ -1,6 +1,9 @@
+import { useEffect } from 'react'
 import '../../styles/form-control.css'
 
 const GameTypeSelect = ({setGameType}) => {
+
+useEffect(() => {setGameType('multiple-choice')}, [setGameType])
 
 return (
 <fieldset onChange={(e) => setGameType(e.target.value)} className="mb-1">
