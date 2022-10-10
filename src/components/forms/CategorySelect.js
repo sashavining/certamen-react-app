@@ -5,7 +5,7 @@ const CategorySelect = ({setCurrentCategory}) => {
     <legend htmlFor='question-category' className="mb-1">Select a category for your game:</legend>
     <select className="input-per60" id='question-category' name="category" onChange={(e) => setCurrentCategory(e.target.value)}>
 
-    <option class='form-control' value="">
+    <option class='form-control' value="" selected>
     Any</option>
     
     <option class='form-control' value="Myth">
