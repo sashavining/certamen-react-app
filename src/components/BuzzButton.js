@@ -1,11 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const BuzzButton = ({toggleAnswering}) => {
-
-    // const nextQuestion = (e) => {
-    //     e.preventDefault()
-    //     setQuestionState(prevState => prevState + 1)
-    // }
 
     const handleClick = (e) => {
         e.preventDefault()

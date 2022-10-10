@@ -1,5 +1,4 @@
-import { buildQueryFromSelectionSet } from '@apollo/client/utilities';
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 
 
 const FadingQuestionText = ({question, toggleAnswering, setDisplayString, displayString, questionInterval}) => {

@@ -1,4 +1,3 @@
-import ReactDOM from 'react-dom'
 import { useQuery } from '@apollo/client'
 import React, { useState } from 'react';
 import {MC_QUESTION_SET_BY_DIFFICULTY_AND_SOURCE} from '../queries'
@@ -17,7 +16,8 @@ const Quiz = ({mode, difficulty, source, endPlaying, setCurrentPoints, scorePoin
     }
 
     const { loading, error, data } = useQuery(MC_QUESTION_SET_BY_DIFFICULTY_AND_SOURCE, 
-        {variables: {difficultyToSearch: difficulty, sourceToSearch: source}});
+        {   fetchPolicy: 'cache-and-network',
+            variables: {difficultyToSearch: difficulty, sourceToSearch: source}});
 
 
     if (loading) return 'Loading...';
