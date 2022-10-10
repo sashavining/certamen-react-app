@@ -9,7 +9,7 @@ return (
 <label class="form-control"><input type="radio" id="short-answer" name="game-mode" value="short-answer" />
 Short Answer</label>
 
-<label class="form-control"><input type="radio" id="multiple-choice" name="game-mode" value="multiple-choice" />
+<label class="form-control"><input type="radio" id="multiple-choice" name="game-mode" value="multiple-choice" checked />
 Multiple Choice</label>
 
 </fieldset>)
