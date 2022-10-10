@@ -1,6 +1,9 @@
+import { useEffect } from 'react'
 import '../../styles/form-control.css'
 
 const GameTypeSelect = ({setGameType}) => {
+
+useEffect(() => {setGameType('multiple-choice')}, [setGameType])
 
 return (
 <fieldset onChange={(e) => setGameType(e.target.value)} className="mb-1">
@@ -9,7 +12,7 @@ return (
 <label class="form-control"><input type="radio" id="short-answer" name="game-mode" value="short-answer" />
 Short Answer</label>
 
-<label class="form-control"><input type="radio" id="multiple-choice" name="game-mode" value="multiple-choice" />
+<label class="form-control"><input type="radio" id="multiple-choice" name="game-mode" value="multiple-choice" checked />
 Multiple Choice</label>
 
 </fieldset>)
