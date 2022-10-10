@@ -124,6 +124,11 @@ margin-bottom:.8rem;
   margin-bottom: 2rem;
 }
 
+.my-6{
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
 .mb-1{
   margin-bottom: .8rem;
 }
@@ -173,6 +178,15 @@ fieldset {
 label {
   display:  inline block;
   margin: 1vh 0vw;
+}
+
+input[type="text"] {
+  padding: 10px 5px;
+  line-height: 10px;
+}
+
+input[type="text"]:focus {
+  background-color: #e0d0ee;
 }
 
 input[type="radio"] {
