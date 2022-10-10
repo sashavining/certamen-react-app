@@ -1,4 +1,3 @@
-import { coerceInputValue } from 'graphql';
 import React, { useState, useEffect } from 'react';
 
 const MCAnswerButtons = ({setCurrentAnswer, correctAnswer, incorrectAnswers, handleAnswer, availablePoints, currentAnswer}) => {

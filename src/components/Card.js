@@ -2,8 +2,6 @@ import React, { useState } from 'react'
 import { useEffect } from 'react'
 
 const Card = ({title, body, makeSelection, value, currentSelection}) => {
-    // what if other card is selected?
-    const [isSelected, setIsSelected] = useState(false)
     const [bgClass, setBgClass] = useState('background-lavender')
 
     useEffect(
@@ -15,7 +13,6 @@ const Card = ({title, body, makeSelection, value, currentSelection}) => {
       );    
 
     const handleClick = () => {
-        setIsSelected((prevIsSelected) => !prevIsSelected)
         makeSelection(value)
     }
 

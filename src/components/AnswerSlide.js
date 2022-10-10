@@ -13,7 +13,7 @@ const AnswerSlide = ({wasCorrect, handleQuestionFlow, correctAnswer, buzzedInStr
     }
 
     const removePunctuation = (string) => {
-        let punctuationLessString = string.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"")
+        let punctuationLessString = string.replace(/[.,/#!$%^&*;:{}=\-_`~()]/g,"")
         return punctuationLessString.replace(/\s{2,}/g," ");
     }
 

@@ -1,4 +1,3 @@
-import ReactDOM from 'react-dom'
 import { useQuery } from '@apollo/client'
 import React, { useState } from 'react';
 import {MC_QUESTION_SET_BY_DIFFICULTY_AND_SOURCE} from '../queries'

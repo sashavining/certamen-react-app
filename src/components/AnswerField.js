@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import AnswerButton from './AnswerButton'
 
 const AnswerField = ({handleAnswer, setCurrentAnswer, handleQuestionFlow, toggleAnswering, answer, availablePoints, scorePoints, answerType}) => {

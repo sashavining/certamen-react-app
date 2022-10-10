@@ -1,6 +1,5 @@
 import { useQuery } from '@apollo/client'
-const { UNIQUE_SOURCES, QUESTION_SET_BY_DIFFICULTY, QUESTION_SET_BY_SOURCE } = require('../../queries')
-const { useState } = require('react')
+const { UNIQUE_SOURCES } = require('../../queries')
 
 const SourceSelect = ({setCurrentSource}) => {
     
