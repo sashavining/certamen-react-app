@@ -74,7 +74,7 @@ const App = () => {
         <body className={backgroundColor}>
           <Header />
           <div className="container">
-            <main>
+            <main className="flex-container">
               {(!isTimeTrial) && <Quiz mode={mode} difficulty={difficulty} source={source} endPlaying={endPlaying} setCurrentPoints={setCurrentPoints} currentPoints={currentPoints} setBackgroundColor={setBackgroundColor} scorePoints={scorePoints}/> }
               {(isTimeTrial) && <TimeTrialQuiz mode={mode} category={category} endPlaying={endPlaying} setCurrentPoints={setCurrentPoints} currentPoints={currentPoints} setBackgroundColor={setBackgroundColor} questionInterval={questionInterval} scorePoints={scorePoints}/> }
             </main>

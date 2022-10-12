@@ -169,6 +169,10 @@ button:hover{
   background-color: #ffff;
 }
 
+button{
+  margin-bottom:10vh;
+}
+
 fieldset {
   border: 0;
   display: flex;
@@ -200,6 +204,16 @@ input[type="radio"] {
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+.flex-container{
+  display:flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.question-text{
+  flex-grow: 1;
 }
 
 .container{
@@ -295,6 +309,8 @@ main {
 .rectangle-button-container{
   text-align: center;
 }
+
+
 
 .corners-rounded-5{
   border-radius: 5px;
