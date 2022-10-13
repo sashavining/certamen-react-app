@@ -228,7 +228,7 @@ input[type="radio"] {
 }
 
 main {
-  background-color: var(--color-main-100);
+  background-color: #eef0f2;
   min-height: 60vh;
   width: 50vw;
   border-radius: 30px;
