@@ -18,7 +18,6 @@ const SourceSelect = ({setCurrentSource}) => {
         {
         result.data.uniqueSources.map((source) => {
             return (
-                // make a better solution for keys later (array indices not advisable)
                 <option value={source} key={result.data.uniqueSources.indexOf(source)}>
                     {source}
                 </option>

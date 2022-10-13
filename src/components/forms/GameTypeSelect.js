@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import '../../styles/form-control.css'
+import '../../styles/App.css'
 
 const GameTypeSelect = ({setGameType}) => {
 

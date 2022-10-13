@@ -39,13 +39,13 @@ const TimeTrialQuestion = ({mode, id, currentQuestion, nextQuestion, scorePoints
             enteredAnswer = currentAnswer
         }
         if (enteredAnswer.toLowerCase() === answer.toLowerCase()) {
-            setBackgroundColor('background-green')
+            setBackgroundColor('background-success')
             scorePoints(availablePoints)
             setIsCorrect(true)
             toggleAnswering()
             setIsBetweenQuestions(true)
         } else {
-            setBackgroundColor('background-red')
+            setBackgroundColor('background-failure')
             setIsCorrect(false)
             toggleAnswering()
             setIsBetweenQuestions(true)
@@ -55,7 +55,7 @@ const TimeTrialQuestion = ({mode, id, currentQuestion, nextQuestion, scorePoints
 
     const handleQuestionFlow = (e, isAnsweredCorrectly) => {
         e.preventDefault()
-        setBackgroundColor('background-white')
+        setBackgroundColor('background-secondary')
         if (isAnsweredCorrectly) {
             setCounter(40)
             nextQuestion()

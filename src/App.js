@@ -1,4 +1,4 @@
-import './App.css';
+import './styles/App.css';
 import Quiz from './components/Quiz'
 import Header from './components/Header'
 import Footer from './components/Footer'
@@ -20,7 +20,7 @@ const App = () => {
   const [mode, setMode] = useState('');
   const [query, setQuery] = useState('')
   const [currentPoints, setCurrentPoints] = useState(0)
-  const [backgroundColor, setBackgroundColor] = useState('background-white')
+  const [backgroundColor, setBackgroundColor] = useState('background-secondary')
 
   const moveToGameSelect = () => {
     setGameState('starting')
@@ -74,7 +74,7 @@ const App = () => {
         <body className={backgroundColor}>
           <Header />
           <div className="container">
-            <main>
+            <main className="flex-container">
               {(!isTimeTrial) && <Quiz mode={mode} difficulty={difficulty} source={source} endPlaying={endPlaying} setCurrentPoints={setCurrentPoints} currentPoints={currentPoints} setBackgroundColor={setBackgroundColor} scorePoints={scorePoints}/> }
               {(isTimeTrial) && <TimeTrialQuiz mode={mode} category={category} endPlaying={endPlaying} setCurrentPoints={setCurrentPoints} currentPoints={currentPoints} setBackgroundColor={setBackgroundColor} questionInterval={questionInterval} scorePoints={scorePoints}/> }
             </main>

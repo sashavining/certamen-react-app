@@ -34,8 +34,8 @@ const AnswerSlide = ({wasCorrect, handleQuestionFlow, correctAnswer, buzzedInStr
                     <p className='my-1'>
                         {(!(differenceBetweenIdealAndActualBuzz === 0)) && (<>
                         <span>{"You buzzed in"}</span>
-                        <span className="text-green">{(differenceBetweenIdealAndActualBuzz < 0) && ` ${Math.abs(differenceBetweenIdealAndActualBuzz)} seconds earlier` }</span>
-                        <span className="text-red"> {(differenceBetweenIdealAndActualBuzz > 0) && ` ${differenceBetweenIdealAndActualBuzz} seconds later`} </span>
+                        <span className="text-success">{(differenceBetweenIdealAndActualBuzz < 0) && ` ${Math.abs(differenceBetweenIdealAndActualBuzz)} seconds earlier` }</span>
+                        <span className="text-failure"> {(differenceBetweenIdealAndActualBuzz > 0) && ` ${differenceBetweenIdealAndActualBuzz} seconds later`} </span>
                         <span>{"than optimal!"}</span>
                         </>)
                         }
