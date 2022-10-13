@@ -1,4 +1,4 @@
-import '../../styles/form-control.css'
+import '../../styles/App.css'
 
 const QuestionIntervalSelect = ({setCurrentInterval}) => {
 

@@ -1,4 +1,4 @@
-import './App.css';
+import './styles/App.css';
 import Quiz from './components/Quiz'
 import Header from './components/Header'
 import Footer from './components/Footer'
@@ -20,7 +20,7 @@ const App = () => {
   const [mode, setMode] = useState('');
   const [query, setQuery] = useState('')
   const [currentPoints, setCurrentPoints] = useState(0)
-  const [backgroundColor, setBackgroundColor] = useState('background-white')
+  const [backgroundColor, setBackgroundColor] = useState('background-secondary')
 
   const moveToGameSelect = () => {
     setGameState('starting')

@@ -42,28 +42,21 @@ const Question = ({mode, id, currentQuestion, nextQuestion, scorePoints, setBack
         }
         let enteredAnswer;
         if (providedAnswer) {
-            // to circumvent the fact that useState is asynchronous - if the MC question provides an answer, set the value of enteredAnswer to that
             enteredAnswer = providedAnswer
         } else {
-            // otherwise (if we are playing the short answer mode), set the value of enteredAnswer to the state variable currentAnswer
             enteredAnswer = currentAnswer
         }
         if (enteredAnswer.toLowerCase() === answer.toLowerCase()) {
-            setBackgroundColor('background-green')
+            setBackgroundColor('background-success')
             scorePoints(availablePoints)
             setIsCorrect(true)
-            // handleQuestionFlow(true) - handle this separately
             toggleAnswering()
             setIsBetweenQuestions(true)
-            // set a success state
-            // setQuestionState(prevQuestionState => prevQuestionState + 1)
         } else {
-            setBackgroundColor('background-red')
+            setBackgroundColor('background-failure')
             setIsCorrect(false)
-            // handleQuestionFlow(false) - handle this separately
             toggleAnswering()
             setIsBetweenQuestions(true)
-            // set a fail state
         }
     }
 
